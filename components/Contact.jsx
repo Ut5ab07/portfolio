@@ -1,10 +1,14 @@
 "use client";
+import { useState } from "react";
 import SectionWrapper from "./ui/SectionWrapper";
 import GlassCard from "./ui/GlassCard";
 import MagneticButton from "./ui/MagneticButton";
 import { Send, FileDown, Github, Linkedin, Mail, Instagram } from "lucide-react";
+import ContactModal from "./ContactModal";
 
 export default function Contact() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section id="contact" className="relative z-10 w-full max-w-4xl px-6 py-24 mx-auto">
       <SectionWrapper>
@@ -22,7 +26,10 @@ export default function Contact() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
-            <MagneticButton className="flex items-center gap-2 bg-white text-slate-900 border border-transparent shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:bg-gray-100">
+            <MagneticButton 
+              className="flex items-center gap-2 bg-white text-slate-900 border border-transparent shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:bg-gray-100 cursor-pointer"
+              onClick={() => setIsModalOpen(true)}
+            >
               <Send className="w-4 h-4" />
               Send Message
             </MagneticButton>
@@ -59,6 +66,8 @@ export default function Contact() {
           </div>
         </GlassCard>
       </SectionWrapper>
+
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }
