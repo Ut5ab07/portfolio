@@ -7,31 +7,42 @@ import {
   Brain, Network, Eye
 } from "lucide-react";
 
-const SKILL_CATEGORIES = {
-  "Languages": [
-    { name: "Python", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" className="w-8 h-8 md:w-10 md:h-10" /> },
-    { name: "JavaScript", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" className="w-8 h-8 md:w-10 md:h-10 rounded-sm" /> },
-    { name: "TypeScript", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript" className="w-8 h-8 md:w-10 md:h-10 rounded-sm" /> },
-    { name: "SQL", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="SQL" className="w-8 h-8 md:w-10 md:h-10" /> },
-    { name: "C++", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++" className="w-8 h-8 md:w-10 md:h-10" /> }
-  ],
-  "AI & Data Science": [
-    { name: "Machine Learning", icon: <Brain className="w-8 h-8 md:w-10 md:h-10 text-purple-400" /> },
-    { name: "Deep Learning", icon: <Network className="w-8 h-8 md:w-10 md:h-10 text-pink-400" /> },
-    { name: "PyTorch", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" alt="PyTorch" className="w-8 h-8 md:w-10 md:h-10" /> },
-    { name: "TensorFlow", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" className="w-8 h-8 md:w-10 md:h-10" /> },
-    { name: "Pandas", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas" className="w-8 h-8 md:w-10 md:h-10 bg-white rounded flex p-1" /> },
-    { name: "Computer Vision", icon: <Eye className="w-8 h-8 md:w-10 md:h-10 text-blue-300" /> }
-  ],
-  "Tools & Technologies": [
-    { name: "Docker", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker" className="w-8 h-8 md:w-10 md:h-10" /> },
-    { name: "Git", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" className="w-8 h-8 md:w-10 md:h-10" /> },
-    { name: "Linux", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux" className="w-8 h-8 md:w-10 md:h-10" /> },
-    { name: "AWS", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" className="w-8 h-8 md:w-10 md:h-10 bg-white rounded p-1 object-contain" /> },
-    { name: "Next.js", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" alt="Next.js" className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-full p-1 border border-transparent" /> },
-    { name: "FastAPI", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg" alt="FastAPI" className="w-8 h-8 md:w-10 md:h-10" /> }
-  ]
-};
+const skillsData = [
+  {
+    category: "Languages",
+    skills: [
+      { name: "Python", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" className="w-8 h-8 md:w-10 md:h-10" /> },
+      { name: "Java", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" className="w-8 h-8 md:w-10 md:h-10" /> },
+      { name: "JavaScript", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" className="w-8 h-8 md:w-10 md:h-10 rounded-sm" /> },
+      { name: "HTML", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML" className="w-8 h-8 md:w-10 md:h-10" /> },
+      { name: "CSS", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS" className="w-8 h-8 md:w-10 md:h-10" /> }
+    ]
+  },
+  {
+    category: "Backend & DataBase",
+    skills: [
+      { name: "Flask", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" alt="Flask" className="w-8 h-8 md:w-10 md:h-10 bg-white rounded p-1 object-contain" /> },
+      { name: "PostgreSQL", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" className="w-8 h-8 md:w-10 md:h-10" /> }
+    ]
+  },
+  {
+    category: "AI / ML",
+    skills: [
+      { name: "Pandas", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas" className="w-8 h-8 md:w-10 md:h-10 bg-white rounded flex p-1" /> },
+      { name: "NumPy", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="NumPy" className="w-8 h-8 md:w-10 md:h-10 bg-white rounded flex p-1" /> },
+      { name: "Matplotlib", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib" className="w-8 h-8 md:w-10 md:h-10 bg-white rounded p-1" /> },
+      { name: "Scikit Learn", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit Learn" className="w-8 h-8 md:w-10 md:h-10 bg-white rounded flex p-1" /> }
+    ]
+  },
+  {
+    category: "Developer Tools",
+    skills: [
+      { name: "Git", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" className="w-8 h-8 md:w-10 md:h-10" /> },
+      { name: "Postman", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" alt="Postman" className="w-8 h-8 md:w-10 md:h-10" /> },
+      { name: "Jupyter", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg" alt="Jupyter Notebook" className="w-8 h-8 md:w-10 md:h-10" /> }
+    ]
+  }
+];
 
 export default function Skills() {
   return (
@@ -45,19 +56,21 @@ export default function Skills() {
           <div className="flex-grow h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
         </div>
 
-        <div className="flex flex-col gap-12">
-          {Object.entries(SKILL_CATEGORIES).map(([category, skills], categoryIndex) => (
-            <div key={categoryIndex} className="flex flex-col items-center">
-              <div className="flex items-center w-full max-w-3xl mb-8">
-                <div className="flex-grow h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-                <h3 className="text-xl font-semibold text-cyan-400 px-6 whitespace-nowrap">
-                  {category}
-                </h3>
-                <div className="flex-grow h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-              </div>
-              <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-                {skills.map((skill, index) => (
-                  <TiltCard key={index} className="h-28 w-28 sm:w-32 lg:w-36">
+        <div className="flex flex-col w-full">
+          {skillsData.map((group) => (
+            <div key={group.category} className="skill-category mt-[60px] text-center flex flex-col items-center">
+              <h3 className="skill-category-title text-[12px] tracking-[3px] uppercase mb-[10px] opacity-70 text-white">
+                {group.category}
+              </h3>
+
+              <div 
+                className="skill-divider w-[80px] h-[2px] mx-auto mb-[30px] rounded-[2px]"
+                style={{ background: 'linear-gradient(90deg, transparent, #5BC0BE, #7C5CFF, transparent)' }}
+              ></div>
+
+              <div className="skills-grid flex flex-wrap justify-center gap-[20px]">
+                {group.skills.map((skill) => (
+                  <TiltCard key={skill.name} className="h-28 w-28 sm:w-32 lg:w-36">
                     <div className="group relative flex h-full w-full flex-col items-center justify-center rounded-xl border border-white/5 bg-white/5 p-4 backdrop-blur-md transition-colors hover:border-cyan-500/30 hover:bg-white/10 shadow-lg cursor-pointer">
                       {/* Icon Container - Fades out slightly or moves up on hover */}
                       <div className="flex flex-col items-center justify-center transition-all duration-300 group-hover:-translate-y-3 group-hover:scale-90 group-hover:opacity-40">
