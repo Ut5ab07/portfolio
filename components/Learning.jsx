@@ -18,16 +18,17 @@ export default function Learning() {
         <style dangerouslySetInnerHTML={{__html: `
           .learning-orbit {
             position: relative;
-            height: 320px;
+            width: 100%;
             max-width: 600px;
-            margin: 2rem auto 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 360px;
+            margin: 0 auto;
           }
 
           .center-node {
             position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             z-index: 10;
             padding: 12px 24px;
             background: rgba(168, 85, 247, 0.15); /* Purple tint */
@@ -38,6 +39,15 @@ export default function Learning() {
             text-align: center;
             backdrop-filter: blur(8px);
             box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+            animation: pulse-glow 4s ease-in-out infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+          }
+
+          .center-node:hover {
+            border-color: rgba(168, 85, 247, 0.8);
+            background: rgba(168, 85, 247, 0.25);
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
           }
 
           .orbit-node {
@@ -52,6 +62,7 @@ export default function Learning() {
             backdrop-filter: blur(8px);
             transition: all 0.3s ease;
             white-space: nowrap;
+            cursor: pointer;
           }
 
           .orbit-node:hover {
@@ -60,44 +71,27 @@ export default function Learning() {
             box-shadow: 0 0 15px rgba(34, 211, 238, 0.2);
           }
 
-          /* Connection lines */
-          .orbit-line {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(168, 85, 247, 0.4) 0%, transparent 100%);
-            transform-origin: 0 0;
-            z-index: 1;
+          @keyframes float-1 {
+            0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
+            50% { transform: translate(-50%, -50%) translateY(-6px); }
           }
 
-          @keyframes float {
-            0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
-            50% { transform: translate(-50%, -50%) translateY(-10px); }
+          @keyframes float-2 {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
           }
           
           @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.2); }
-            50% { box-shadow: 0 0 35px rgba(168, 85, 247, 0.5); }
+            0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 20px rgba(168, 85, 247, 0.2); }
+            50% { transform: translate(-50%, -50%) scale(1.02); box-shadow: 0 0 35px rgba(168, 85, 247, 0.5); }
           }
 
-          .center-node {
-             animation: pulse-glow 4s ease-in-out infinite;
-          }
-
-          /* Positioning nodes via polar coordinates mapping manually */
-          .node-1 { animation: float 6s ease-in-out infinite; top: 15%; left: 50%; }
-          .node-2 { animation: float 7s ease-in-out infinite 1s; top: 35%; left: 15%; }
-          .node-3 { animation: float 6.5s ease-in-out infinite 0.5s; top: 35%; left: 85%; }
-          .node-4 { animation: float 7.5s ease-in-out infinite 1.5s; top: 85%; left: 30%; }
-          .node-5 { animation: float 6s ease-in-out infinite 2s; top: 85%; left: 70%; }
-          
-          /* Corresponding lines */
-          .line-1 { width: 110px; transform: rotate(-90deg); }
-          .line-2 { width: 140px; transform: rotate(-160deg); }
-          .line-3 { width: 140px; transform: rotate(-20deg); }
-          .line-4 { width: 130px; transform: rotate(115deg); }
-          .line-5 { width: 130px; transform: rotate(65deg); }
+          /* Positioning nodes */
+          .orbit-1 { top: 10%; left: 50%; animation: float-1 6s ease-in-out infinite; }
+          .orbit-2 { top: 40%; left: 5%; animation: float-2 7s ease-in-out infinite 1s; }
+          .orbit-3 { top: 40%; right: 5%; animation: float-2 6.5s ease-in-out infinite 0.5s; }
+          .orbit-4 { bottom: 10%; left: 15%; animation: float-2 7.5s ease-in-out infinite 1.5s; }
+          .orbit-5 { bottom: 10%; right: 15%; animation: float-2 6s ease-in-out infinite 2s; }
 
         `}} />
         <div className="absolute bottom-0 left-0 p-32 bg-purple-500/5 rounded-full blur-3xl -ml-16 -mb-16 group-hover:bg-purple-500/10 transition-colors duration-500" />
@@ -121,18 +115,11 @@ export default function Learning() {
               AI & Data Science
             </div>
 
-            {/* Connection Lines */}
-            <div className="orbit-line line-1" />
-            <div className="orbit-line line-2" />
-            <div className="orbit-line line-3" />
-            <div className="orbit-line line-4" />
-            <div className="orbit-line line-5" />
-
-            <div className="orbit-node node-1">Reinforcement Learning</div>
-            <div className="orbit-node node-2">Computer Vision</div>
-            <div className="orbit-node node-3">Generative AI</div>
-            <div className="orbit-node node-4">Advanced ML</div>
-            <div className="orbit-node node-5">Data Science</div>
+            <div className="orbit-node orbit-1">Reinforcement Learning</div>
+            <div className="orbit-node orbit-2">Computer Vision</div>
+            <div className="orbit-node orbit-3">Generative AI</div>
+            <div className="orbit-node orbit-4">Advanced ML</div>
+            <div className="orbit-node orbit-5">Data Science</div>
           </div>
         </div>
       </GlassCard>

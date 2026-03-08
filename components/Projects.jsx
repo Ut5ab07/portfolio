@@ -106,7 +106,7 @@ export default function Projects() {
 
         <div className="mt-16 flex justify-center w-full">
           <a
-            href="https://github.com/Ut5ab07" 
+            href="https://github.com/Ut5ab07?tab=repositories" 
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-2 text-gray-300 hover:text-cyan-400 transition-colors font-medium text-lg bg-white/5 border border-white/10 px-6 py-3 rounded-full hover:bg-white/10 hover:border-cyan-500/30 backdrop-blur-sm"
