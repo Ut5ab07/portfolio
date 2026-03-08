@@ -20,7 +20,7 @@ export default function Learning() {
             position: relative;
             width: 100%;
             max-width: 600px;
-            height: 360px;
+            height: 340px; /* Reduced height to perfectly align with Github Activity */
             margin: 0 auto;
           }
 
@@ -28,15 +28,21 @@ export default function Learning() {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); /* Keeps it exactly in the center */
             z-index: 10;
-            padding: 12px 24px;
+            width: 120px;  /* Slightly larger circle to prevent text spill */
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background: rgba(168, 85, 247, 0.15); /* Purple tint */
             border: 1px solid rgba(168, 85, 247, 0.4);
-            border-radius: 9999px;
+            border-radius: 50%; /* Perfect circle */
             font-weight: 700;
             color: #fff;
             text-align: center;
+            line-height: 1.3;
+            font-size: 0.95rem;
             backdrop-filter: blur(8px);
             box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
             animation: pulse-glow 4s ease-in-out infinite;
@@ -52,17 +58,18 @@ export default function Learning() {
 
           .orbit-node {
             position: absolute;
-            padding: 8px 16px;
+            padding: 8px 18px; /* Slightly tighter padding to fit the new layout */
             background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 9999px;
-            font-size: 0.875rem;
+            font-size: 0.85rem;
             color: #e2e8f0;
             font-weight: 500;
             backdrop-filter: blur(8px);
             transition: all 0.3s ease;
             white-space: nowrap;
             cursor: pointer;
+            z-index: 5;
           }
 
           .orbit-node:hover {
@@ -71,27 +78,27 @@ export default function Learning() {
             box-shadow: 0 0 15px rgba(34, 211, 238, 0.2);
           }
 
+          /* Floating Animations with embedded un-translated centering */
           @keyframes float-1 {
             0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
             50% { transform: translate(-50%, -50%) translateY(-6px); }
           }
-
           @keyframes float-2 {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
+            0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
+            50% { transform: translate(-50%, -50%) translateY(-8px); }
           }
           
           @keyframes pulse-glow {
             0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 20px rgba(168, 85, 247, 0.2); }
-            50% { transform: translate(-50%, -50%) scale(1.02); box-shadow: 0 0 35px rgba(168, 85, 247, 0.5); }
+            50% { transform: translate(-50%, -50%) scale(1.03); box-shadow: 0 0 35px rgba(168, 85, 247, 0.5); }
           }
 
-          /* Positioning nodes */
-          .orbit-1 { top: 10%; left: 50%; animation: float-1 6s ease-in-out infinite; }
-          .orbit-2 { top: 40%; left: 5%; animation: float-2 7s ease-in-out infinite 1s; }
-          .orbit-3 { top: 40%; right: 5%; animation: float-2 6.5s ease-in-out infinite 0.5s; }
-          .orbit-4 { bottom: 10%; left: 15%; animation: float-2 7.5s ease-in-out infinite 1.5s; }
-          .orbit-5 { bottom: 10%; right: 15%; animation: float-2 6s ease-in-out infinite 2s; }
+          /* Perfect circle spacing adjusted for the tighter 340px height */
+          .orbit-1 { top: 12%; left: 50%; animation: float-1 6s ease-in-out infinite; } 
+          .orbit-2 { top: 38%; left: 20%; animation: float-2 7s ease-in-out infinite 1s; } 
+          .orbit-3 { top: 38%; left: 80%; animation: float-2 6.5s ease-in-out infinite 0.5s; } 
+          .orbit-4 { top: 80%; left: 32%; animation: float-2 7.5s ease-in-out infinite 1.5s; } 
+          .orbit-5 { top: 80%; left: 68%; animation: float-2 6s ease-in-out infinite 2s; }
 
         `}} />
         <div className="absolute bottom-0 left-0 p-32 bg-purple-500/5 rounded-full blur-3xl -ml-16 -mb-16 group-hover:bg-purple-500/10 transition-colors duration-500" />
@@ -112,7 +119,7 @@ export default function Learning() {
 
           <div className="learning-orbit">
             <div className="center-node">
-              AI & Data Science
+              AI & <br /> Data Science
             </div>
 
             <div className="orbit-node orbit-1">Reinforcement Learning</div>

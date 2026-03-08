@@ -33,7 +33,7 @@ export default function MagneticButton({ children, className, ...props }) {
       }}
       transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
       className={cn(
-        "relative rounded-full px-6 py-3 font-medium transition-colors hover:bg-white/10 active:scale-95",
+        "relative rounded-full px-6 py-3 font-medium transition-colors hover:bg-white/10 active:scale-95 cursor-pointer flex items-center justify-center",
         className
       )}
       {...props}

@@ -56,14 +56,13 @@ export default function GithubActivity() {
 
   return (
     <SectionWrapper>
-      <GlassCard className="h-full p-8 relative overflow-hidden group border-white/10 hover:border-cyan-500/30 transition-colors duration-500">
-        <div className="absolute top-0 right-0 p-32 bg-cyan-500/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-cyan-500/10 transition-colors duration-500" />
+      <GlassCard className="h-full p-8 relative overflow-hidden border-white/10 transition-colors duration-500">
         
         <div className="relative z-10">
           <div className="flex items-center w-full mb-8 cursor-pointer">
             <div className="flex-grow h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
             <div className="flex items-center gap-3 px-6 text-white">
-              <a href="https://github.com/Ut5ab07" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-cyan-400 transition-colors">
+              <a href="https://github.com/Ut5ab07" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
                 <GithubIcon />
                 <h3 className="text-2xl font-bold tracking-tight whitespace-nowrap">GitHub Activity</h3>
               </a>
