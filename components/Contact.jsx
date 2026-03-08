@@ -33,11 +33,6 @@ export default function Contact() {
               <Send className="w-4 h-4" />
               Send Message
             </MagneticButton>
-            
-            <MagneticButton className="flex items-center gap-2 border border-white/20 bg-white/5 hover:bg-white/10 text-white">
-              <FileDown className="w-4 h-4" />
-              Download Resume
-            </MagneticButton>
           </div>
 
           <div className="flex items-center justify-center gap-8 border-t border-white/10 pt-8 mt-4">

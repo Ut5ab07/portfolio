@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import GlassCard from "./ui/GlassCard";
 import MagneticButton from "./ui/MagneticButton";
 import SectionWrapper from "./ui/SectionWrapper";
-import { Github, FileText, ArrowRight } from "lucide-react";
+import { Github, FileText, ArrowRight, FileDown } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -35,8 +35,15 @@ export default function Hero() {
                 </MagneticButton>
               </a>
 
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <MagneticButton className="flex w-full items-center justify-center gap-2 border border-white/20 bg-white/5 hover:bg-white/10 text-white">
+                  <FileDown className="h-4 w-4" />
+                  Resume
+                </MagneticButton>
+              </a>
+
               <a href="https://github.com/Ut5ab07" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                <MagneticButton className="flex w-full items-center justify-center gap-2 border border-white/10 bg-white/5 hover:bg-white/10">
+                <MagneticButton className="flex w-full items-center justify-center gap-2 border border-white/10 bg-white/5 hover:bg-white/10 text-white">
                   <Github className="h-4 w-4" />
                   GitHub
                 </MagneticButton>

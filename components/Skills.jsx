@@ -68,24 +68,26 @@ export default function Skills() {
                 style={{ background: 'linear-gradient(90deg, transparent, #5BC0BE, #7C5CFF, transparent)' }}
               ></div>
 
-              <div className="skills-grid flex flex-wrap justify-center gap-[20px]">
-                {group.skills.map((skill) => (
-                  <TiltCard key={skill.name} className="h-28 w-28 sm:w-32 lg:w-36">
-                    <div className="group relative flex h-full w-full flex-col items-center justify-center rounded-xl border border-white/5 bg-white/5 p-4 backdrop-blur-md transition-colors hover:border-cyan-500/30 hover:bg-white/10 shadow-lg cursor-pointer">
-                      {/* Icon Container - Fades out slightly or moves up on hover */}
-                      <div className="flex flex-col items-center justify-center transition-all duration-300 group-hover:-translate-y-3 group-hover:scale-90 group-hover:opacity-40">
-                        {skill.icon}
-                      </div>
+              <div className="skills-wrapper max-w-[700px] mx-auto w-full">
+                <div className="skills-grid flex flex-wrap justify-center gap-[16px]">
+                  {group.skills.map((skill) => (
+                    <TiltCard key={skill.name} className="h-28 w-28 sm:w-32 lg:w-36">
+                      <div className="group relative flex h-full w-full flex-col items-center justify-center rounded-xl border border-white/5 bg-white/5 p-4 backdrop-blur-md transition-colors hover:border-cyan-500/30 hover:bg-white/10 shadow-lg cursor-pointer">
+                        {/* Icon Container - Fades out slightly or moves up on hover */}
+                        <div className="flex flex-col items-center justify-center transition-all duration-300 group-hover:-translate-y-3 group-hover:scale-90 group-hover:opacity-40">
+                          {skill.icon}
+                        </div>
 
-                      {/* Tooltip Text - Hidden by default, appears on hover */}
-                      <div className="absolute bottom-4 opacity-0 translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
-                        <span className="text-center font-medium text-white text-xs sm:text-sm whitespace-nowrap drop-shadow-md">
-                          {skill.name}
-                        </span>
+                        {/* Tooltip Text - Hidden by default, appears on hover */}
+                        <div className="absolute bottom-4 opacity-0 translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                          <span className="text-center font-medium text-white text-xs sm:text-sm whitespace-nowrap drop-shadow-md">
+                            {skill.name}
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  </TiltCard>
-                ))}
+                    </TiltCard>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
