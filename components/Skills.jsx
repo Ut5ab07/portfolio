@@ -31,7 +31,8 @@ const skillsData = [
       { name: "Pandas", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas" className="w-8 h-8 md:w-10 md:h-10 bg-white rounded flex p-1" /> },
       { name: "NumPy", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="NumPy" className="w-8 h-8 md:w-10 md:h-10 bg-white rounded flex p-1" /> },
       { name: "Matplotlib", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib" className="w-8 h-8 md:w-10 md:h-10 bg-white rounded p-1" /> },
-      { name: "Scikit Learn", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit Learn" className="w-8 h-8 md:w-10 md:h-10 bg-white rounded flex p-1" /> }
+      { name: "Scikit Learn", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit Learn" className="w-8 h-8 md:w-10 md:h-10 bg-white rounded flex p-1" /> },
+      { name: "OpenCV", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg" alt="OpenCV" className="w-8 h-8 md:w-10 md:h-10 bg-white rounded flex p-1" /> }
     ]
   },
   {
