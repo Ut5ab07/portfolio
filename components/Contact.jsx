@@ -36,10 +36,15 @@ export default function Contact() {
           </div>
 
           <div className="flex items-center justify-center gap-8 border-t border-white/10 pt-8 mt-4">
-            <a href="mailto:acharyautsab68@gmail.com" className="text-[#A8B2D1] hover:text-white transition-colors p-2 rounded-full hover:bg-white/5">
-              <Mail className="w-6 h-6" />
-              <span className="sr-only">Email</span>
-            </a>
+            <div className="relative inline-flex items-center justify-center group">
+              <a href="mailto:acharyautsab68@gmail.com" className="text-[#A8B2D1] hover:text-white transition-all duration-200 p-2 rounded-full hover:bg-white/5 hover:scale-[1.08]">
+                <Mail className="w-6 h-6" />
+                <span className="sr-only">Email</span>
+              </a>
+              <span className="absolute bottom-[130%] left-1/2 -translate-x-1/2 bg-[rgba(20,25,40,0.9)] text-white text-[12px] py-1 px-2.5 rounded-md whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-200 ease-out group-hover:opacity-100">
+                Send me an email
+              </span>
+            </div>
             <a href="https://github.com/Ut5ab07" target="_blank" rel="noopener noreferrer" className="text-[#A8B2D1] hover:text-white transition-colors p-2 rounded-full hover:bg-white/5">
               <Github className="w-6 h-6" />
               <span className="sr-only">GitHub</span>
