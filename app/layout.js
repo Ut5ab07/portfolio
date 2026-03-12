@@ -4,12 +4,13 @@ import Navbar from "@/components/Navbar";
 import ParticleBackground from "@/components/ParticleBackground";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import CursorGlow from "@/components/CursorGlow";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Utsab Raj Acharya",
-  description: "AI Engineer & Data Science Enthusiast Portfolio",
+  description: "Portfolio of Utsab Raj Acharya showcasing AI, machine learning, and data science projects.",
 };
 
 export default function RootLayout({ children }) {
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
         <CursorGlow />
         <Navbar />
         {children}
+        <Analytics />
       </body>
     </html>
   );
