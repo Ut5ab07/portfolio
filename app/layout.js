@@ -12,7 +12,7 @@ export const metadata = {
   title: "Utsab Raj Acharya",
   description: "Portfolio of Utsab Raj Acharya showcasing AI, machine learning, and data science projects.",
   icons: {
-    icon: "/favicon.png",
+    icon: "/favicon.ico",
   },
 };
 
