@@ -11,6 +11,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Utsab Raj Acharya",
   description: "Portfolio of Utsab Raj Acharya showcasing AI, machine learning, and data science projects.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
