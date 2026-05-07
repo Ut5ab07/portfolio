@@ -35,7 +35,7 @@ export default function Hero() {
                 </MagneticButton>
               </a>
 
-              <a href="/utsab_resume_da.pdf" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <a href="/utsab_resume_updated.pdf" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                 <MagneticButton className="flex w-full items-center justify-center gap-2 border border-white/20 bg-white/5 hover:bg-white/10 text-white">
                   <FileDown className="h-4 w-4" />
                   Resume
