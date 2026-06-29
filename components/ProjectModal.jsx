@@ -47,8 +47,8 @@ export default function ProjectModal({ isOpen, onClose, project }) {
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             className="relative z-10 w-full max-w-3xl pointer-events-auto max-h-[90vh] flex flex-col"
           >
-            <GlassCard className="flex flex-col overflow-hidden max-h-[90vh] bg-slate-900/80 mt-16 md:mt-0">
-              <div className="flex items-center justify-between border-b border-white/10 p-4 md:p-6 bg-slate-900/50">
+            <GlassCard className="flex flex-col overflow-hidden max-h-[90vh] bg-neutral-900/80 mt-16 md:mt-0">
+              <div className="flex items-center justify-between border-b border-white/10 p-4 md:p-6 bg-neutral-900/50">
                 <h3 className="text-xl md:text-2xl font-bold text-white pr-8">{project.title}</h3>
                 <button
                   onClick={onClose}
@@ -65,7 +65,7 @@ export default function ProjectModal({ isOpen, onClose, project }) {
 
                 <div className="space-y-6">
                   <div>
-                    <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-cyan-400">
+                    <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-400">
                       Features
                     </h4>
                     <ul className="list-inside list-disc space-y-2 text-sm md:text-base text-gray-300">
@@ -76,7 +76,7 @@ export default function ProjectModal({ isOpen, onClose, project }) {
                   </div>
 
                   <div>
-                    <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-purple-400">
+                    <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-amber-400">
                       Tech Stack
                     </h4>
                     <div className="flex flex-wrap gap-2">
@@ -108,7 +108,7 @@ export default function ProjectModal({ isOpen, onClose, project }) {
                   href={project.demoLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-cyan-600 px-4 py-2.5 font-medium text-white shadow-lg transition-colors hover:bg-cyan-500 hover:shadow-cyan-500/25"
+                  className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-emerald-600 px-4 py-2.5 font-medium text-white shadow-lg transition-colors hover:bg-emerald-500 hover:shadow-emerald-500/25"
                 >
                   <ExternalLink className="h-4 w-4" />
                   Live Demo

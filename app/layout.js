@@ -43,7 +43,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen antialiased selection:bg-cyan-500/30`}>
+      <body className={`${inter.className} min-h-screen antialiased selection:bg-emerald-500/30`}>
         <ParticleBackground />
         <ScrollProgressBar />
         <CursorGlow />

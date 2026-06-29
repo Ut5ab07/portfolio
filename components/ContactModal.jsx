@@ -145,7 +145,7 @@ export default function ContactModal({ isOpen, onClose }) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", duration: 0.5, bounce: 0.3 }}
-            className="relative z-10 w-full max-w-lg bg-slate-900/90 border border-white/10 rounded-2xl shadow-2xl overflow-hidden backdrop-blur-xl pointer-events-auto"
+            className="relative z-10 w-full max-w-lg bg-neutral-900/90 border border-white/10 rounded-2xl shadow-2xl overflow-hidden backdrop-blur-xl pointer-events-auto"
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
           >
             {/* Header */}
@@ -187,7 +187,7 @@ export default function ContactModal({ isOpen, onClose }) {
                       required
                       placeholder="Your name"
                       disabled={status === "loading"}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:border-cyan-500/50 focus:shadow-[0_0_15px_rgba(91,192,190,0.2)] transition-all duration-300 disabled:opacity-50"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:border-emerald-500/50 focus:shadow-[0_0_15px_rgba(52,211,153,0.2)] transition-all duration-300 disabled:opacity-50"
                     />
                   </div>
 
@@ -200,7 +200,7 @@ export default function ContactModal({ isOpen, onClose }) {
                       required
                       placeholder="your@email.com"
                       disabled={status === "loading"}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:border-cyan-500/50 focus:shadow-[0_0_15px_rgba(91,192,190,0.2)] transition-all duration-300 disabled:opacity-50"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:border-emerald-500/50 focus:shadow-[0_0_15px_rgba(52,211,153,0.2)] transition-all duration-300 disabled:opacity-50"
                     />
                   </div>
 
@@ -213,7 +213,7 @@ export default function ContactModal({ isOpen, onClose }) {
                       placeholder="Type your message..."
                       rows="4"
                       disabled={status === "loading"}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:border-cyan-500/50 focus:shadow-[0_0_15px_rgba(91,192,190,0.2)] transition-all duration-300 disabled:opacity-50 resize-y"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:border-emerald-500/50 focus:shadow-[0_0_15px_rgba(52,211,153,0.2)] transition-all duration-300 disabled:opacity-50 resize-y"
                     ></textarea>
                   </div>
 
@@ -227,7 +227,7 @@ export default function ContactModal({ isOpen, onClose }) {
                     </motion.p>
                   )}
 
-                  <MagneticButton className="flex items-center justify-center gap-2 mt-4 bg-gradient-to-r from-[#5BC0BE] to-[#7C5CFF] text-white py-3.5 rounded-xl border border-transparent hover:shadow-[0_0_20px_rgba(91,192,190,0.4)] disabled:opacity-50 w-full" disabled={status === "loading"}>
+                  <MagneticButton className="flex items-center justify-center gap-2 mt-4 bg-gradient-to-r from-[#34d399] to-[#fbbf24] text-white py-3.5 rounded-xl border border-transparent hover:shadow-[0_0_20px_rgba(52,211,153,0.4)] disabled:opacity-50 w-full" disabled={status === "loading"}>
                     {status === "loading" ? (
                       <Loader2 className="w-5 h-5 animate-spin" />
                     ) : (

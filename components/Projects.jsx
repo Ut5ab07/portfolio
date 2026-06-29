@@ -60,7 +60,7 @@ export default function Projects() {
         <div className="mb-14 flex items-center w-full cursor-pointer">
           <div className="flex-grow h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight md:text-4xl text-white px-4 sm:px-6 whitespace-normal sm:whitespace-nowrap text-center">
-            Featured Projects<span className="text-cyan-400">.</span>
+            Featured Projects<span className="text-emerald-400">.</span>
           </h2>
           <div className="flex-grow h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
         </div>
@@ -70,9 +70,9 @@ export default function Projects() {
             <div
               key={project.id}
               onClick={() => setSelectedProject(project)}
-              className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:border-cyan-500/50 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(91,192,190,0.2)]"
+              className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:border-emerald-500/50 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(52,211,153,0.2)]"
             >
-              <h3 className="mb-2 text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+              <h3 className="mb-2 text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">
                 {project.title}
               </h3>
               
@@ -106,7 +106,7 @@ export default function Projects() {
                 </button>
                 {/* 
                 <button 
-                  className="flex items-center gap-2 text-sm font-medium text-cyan-500 transition-colors hover:text-cyan-400"
+                  className="flex items-center gap-2 text-sm font-medium text-emerald-500 transition-colors hover:text-emerald-400"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <ExternalLink className="h-4 w-4" />
@@ -123,7 +123,7 @@ export default function Projects() {
             href="https://github.com/Ut5ab07?tab=repositories" 
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-2 text-gray-300 hover:text-cyan-400 transition-colors font-medium text-lg bg-white/5 border border-white/10 px-6 py-3 rounded-full hover:bg-white/10 hover:border-cyan-500/30 backdrop-blur-sm"
+            className="group flex items-center gap-2 text-gray-300 hover:text-emerald-400 transition-colors font-medium text-lg bg-white/5 border border-white/10 px-6 py-3 rounded-full hover:bg-white/10 hover:border-emerald-500/30 backdrop-blur-sm"
           >
             <span>More Projects on GitHub</span>
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />

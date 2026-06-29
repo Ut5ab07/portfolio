@@ -35,7 +35,7 @@ export default function Navbar() {
       {/* Top blur mask for the gap above the navbar */}
       <div 
         className={`absolute top-0 left-0 w-full h-12 pointer-events-none transition-all duration-300 -z-10 ${
-          isScrolled ? "bg-[#0B132B]/80 backdrop-blur-md" : "opacity-0"
+          isScrolled ? "bg-[#0c0d0f]/80 backdrop-blur-md" : "opacity-0"
         }`}
         style={{
           maskImage: 'linear-gradient(to bottom, black 60%, transparent)',
@@ -45,11 +45,11 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl">
         <div 
           className={`glass-panel mx-auto flex items-center justify-between px-6 py-3 transition-all duration-300 ${
-            isScrolled ? "bg-slate-950/95 backdrop-blur-3xl border-cyan-500/30 shadow-[0_4px_30px_rgba(0,0,0,0.8)] py-4" : "bg-transparent shadow-none"
+            isScrolled ? "bg-neutral-950/95 backdrop-blur-3xl border-emerald-500/30 shadow-[0_4px_30px_rgba(0,0,0,0.8)] py-4" : "bg-transparent shadow-none"
           }`}
         >
-          <div className="text-xl font-bold tracking-tighter text-cyan-400">
-            URA<span className="text-purple-500">.</span>
+          <div className="text-xl font-bold tracking-tighter text-emerald-400">
+            URA<span className="text-amber-500">.</span>
           </div>
 
           <nav className="hidden items-center space-x-8 md:flex">
@@ -83,7 +83,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden absolute top-24 left-6 right-6 p-6 rounded-2xl glass-panel border border-white/10 shadow-2xl z-40 bg-slate-900/95 backdrop-blur-xl"
+            className="md:hidden absolute top-24 left-6 right-6 p-6 rounded-2xl glass-panel border border-white/10 shadow-2xl z-40 bg-neutral-900/95 backdrop-blur-xl"
           >
             <nav className="flex flex-col space-y-4">
               {NAV_LINKS.map((link) => (
@@ -91,7 +91,7 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-lg font-medium text-gray-300 transition-colors hover:text-cyan-400 border-b border-white/5 pb-2"
+                  className="text-lg font-medium text-gray-300 transition-colors hover:text-emerald-400 border-b border-white/5 pb-2"
                 >
                   {link.name}
                 </a>

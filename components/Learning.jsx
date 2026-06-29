@@ -14,7 +14,7 @@ const TOPICS = [
 export default function Learning() {
   return (
     <SectionWrapper delay={0.2}>
-      <GlassCard className="h-full p-6 sm:p-8 border-white/10 hover:border-purple-500/30 transition-colors duration-500 relative overflow-hidden group min-h-[450px]">
+      <GlassCard className="h-full p-6 sm:p-8 border-white/10 hover:border-amber-500/30 transition-colors duration-500 relative overflow-hidden group min-h-[450px]">
         <style dangerouslySetInnerHTML={{__html: `
           .learning-orbit {
             position: relative;
@@ -35,8 +35,8 @@ export default function Learning() {
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(168, 85, 247, 0.15); /* Purple tint */
-            border: 1px solid rgba(168, 85, 247, 0.4);
+            background: rgba(245, 158, 11, 0.15); /* Amber tint */
+            border: 1px solid rgba(245, 158, 11, 0.4);
             border-radius: 50%; /* Perfect circle */
             font-weight: 700;
             color: #fff;
@@ -73,9 +73,9 @@ export default function Learning() {
           }
 
           .orbit-node:hover {
-            border-color: rgba(34, 211, 238, 0.4); /* Cyan highlight on hover */
+            border-color: rgba(16, 185, 129, 0.4); /* Emerald highlight on hover */
             background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
-            box-shadow: 0 0 15px rgba(34, 211, 238, 0.2);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
           }
 
           /* Floating Animations with embedded un-translated centering */
@@ -89,8 +89,8 @@ export default function Learning() {
           }
           
           @keyframes pulse-glow {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 20px rgba(168, 85, 247, 0.2); }
-            50% { transform: translate(-50%, -50%) scale(1.03); box-shadow: 0 0 35px rgba(168, 85, 247, 0.5); }
+            0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 20px rgba(245, 158, 11, 0.2); }
+            50% { transform: translate(-50%, -50%) scale(1.03); box-shadow: 0 0 35px rgba(245, 158, 11, 0.5); }
           }
 
           /* Perfect circle spacing adjusted for the tighter 340px height */
@@ -122,13 +122,13 @@ export default function Learning() {
           }
 
         `}} />
-        <div className="absolute bottom-0 left-0 p-32 bg-purple-500/5 rounded-full blur-3xl -ml-16 -mb-16 group-hover:bg-purple-500/10 transition-colors duration-500" />
+        <div className="absolute bottom-0 left-0 p-32 bg-amber-500/5 rounded-full blur-3xl -ml-16 -mb-16 group-hover:bg-amber-500/10 transition-colors duration-500" />
 
         <div className="relative z-10 flex flex-col h-full">
           <div className="flex items-center w-full mb-4 cursor-pointer">
             <div className="flex-grow h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
             <div className="flex items-center gap-3 px-6 text-white">
-              <Sparkles className="h-8 w-8 text-purple-400" />
+              <Sparkles className="h-8 w-8 text-amber-400" />
               <h3 className="text-xl sm:text-2xl font-bold tracking-tight whitespace-normal sm:whitespace-nowrap text-center">Currently Learning</h3>
             </div>
             <div className="flex-grow h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>

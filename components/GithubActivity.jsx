@@ -71,11 +71,11 @@ export default function GithubActivity() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <StatBox icon={<BookOpen className="text-[#66E0FF]" />} label="Repositories" value={stats.repos} />
-            <StatBox icon={<Users className="text-purple-400" />} label="Followers" value={stats.followers} />
+            <StatBox icon={<BookOpen className="text-amber-400" />} label="Repositories" value={stats.repos} />
+            <StatBox icon={<Users className="text-lime-400" />} label="Followers" value={stats.followers} />
             <StatBox icon={<Star className="text-emerald-400" />} label="Contributions" value={stats.contributions} />
             
-            <div className="bg-slate-900/50 rounded-xl p-4 border border-white/5 flex flex-col items-start justify-between backdrop-blur-sm">
+            <div className="bg-neutral-900/50 rounded-xl p-4 border border-white/5 flex flex-col items-start justify-between backdrop-blur-sm">
               <div className="flex items-center gap-2 mb-2 w-full">
                 <div className="p-2 bg-white/5 rounded-lg border border-white/5">
                   <FileCode2 className="text-amber-400 w-6 h-6" />
@@ -86,13 +86,13 @@ export default function GithubActivity() {
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-semibold text-white">Python</span>
                   <div className="w-16 h-1.5 bg-white/10 rounded-full overflow-hidden">
-                    <div className="h-full bg-blue-400 w-[75%] rounded-full"></div>
+                    <div className="h-full bg-emerald-400 w-[75%] rounded-full"></div>
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-semibold text-white">SQL</span>
                   <div className="w-16 h-1.5 bg-white/10 rounded-full overflow-hidden">
-                    <div className="h-full bg-purple-400 w-[15%] rounded-full"></div>
+                    <div className="h-full bg-amber-400 w-[15%] rounded-full"></div>
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
@@ -112,7 +112,7 @@ export default function GithubActivity() {
 
 function StatBox({ icon, label, value }) {
   return (
-    <div className="bg-slate-900/50 rounded-xl p-4 border border-white/5 flex flex-col items-start gap-2 backdrop-blur-sm">
+    <div className="bg-neutral-900/50 rounded-xl p-4 border border-white/5 flex flex-col items-start gap-2 backdrop-blur-sm">
       <div className="p-2 bg-white/5 rounded-lg border border-white/5">
         {icon}
       </div>

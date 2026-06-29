@@ -16,7 +16,7 @@ export default function Contact() {
           <div className="flex items-center w-full mb-6 cursor-pointer">
             <div className="flex-grow h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white px-4 sm:px-6 whitespace-normal sm:whitespace-nowrap">
-              Let&apos;s Build Something<span className="text-cyan-400">.</span>
+              Let&apos;s Build Something<span className="text-emerald-400">.</span>
             </h2>
             <div className="flex-grow h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
           </div>
@@ -41,7 +41,7 @@ export default function Contact() {
                 <Mail className="w-6 h-6" />
                 <span className="sr-only">Email</span>
               </a>
-              <span className="absolute bottom-[130%] left-1/2 -translate-x-1/2 bg-[rgba(20,25,40,0.9)] text-white text-[12px] py-1 px-2.5 rounded-md whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-200 ease-out group-hover:opacity-100">
+              <span className="absolute bottom-[130%] left-1/2 -translate-x-1/2 bg-[rgba(15,15,18,0.9)] text-white text-[12px] py-1 px-2.5 rounded-md whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-200 ease-out group-hover:opacity-100">
                 Send me an email
               </span>
             </div>

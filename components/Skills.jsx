@@ -54,7 +54,7 @@ export default function Skills() {
         <div className="mb-16 flex items-center w-full cursor-pointer">
           <div className="flex-grow h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-white px-6 whitespace-nowrap">
-            Technical Skills<span className="text-purple-500">.</span>
+            Technical Skills<span className="text-amber-500">.</span>
           </h2>
           <div className="flex-grow h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
         </div>
@@ -68,14 +68,14 @@ export default function Skills() {
 
               <div 
                 className="skill-divider w-[80px] h-[2px] mx-auto mb-[30px] rounded-[2px]"
-                style={{ background: 'linear-gradient(90deg, transparent, #5BC0BE, #7C5CFF, transparent)' }}
+                style={{ background: 'linear-gradient(90deg, transparent, #34d399, #fbbf24, transparent)' }}
               ></div>
 
               <div className="skills-wrapper max-w-[700px] mx-auto w-full">
                 <div className="skills-grid flex flex-wrap justify-center gap-[16px]">
                   {group.skills.map((skill) => (
                     <TiltCard key={skill.name} className="h-28 w-28 sm:w-32 lg:w-36">
-                      <div className="group relative flex h-full w-full flex-col items-center justify-center rounded-xl border border-white/5 bg-white/5 p-4 backdrop-blur-md transition-colors hover:border-cyan-500/30 hover:bg-white/10 shadow-lg cursor-pointer">
+                      <div className="group relative flex h-full w-full flex-col items-center justify-center rounded-xl border border-white/5 bg-white/5 p-4 backdrop-blur-md transition-colors hover:border-emerald-500/30 hover:bg-white/10 shadow-lg cursor-pointer">
                         {/* Icon Container - Fades out slightly or moves up on hover */}
                         <div className="flex flex-col items-center justify-center transition-all duration-300 group-hover:-translate-y-3 group-hover:scale-90 group-hover:opacity-40">
                           {skill.icon}

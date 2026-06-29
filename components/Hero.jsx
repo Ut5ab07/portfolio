@@ -14,11 +14,11 @@ export default function Hero() {
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         >
           <GlassCard className="flex flex-col items-center p-6 sm:p-10 text-center md:p-16">
-            <h1 className="mb-4 bg-gradient-to-r from-white via-cyan-100 to-purple-200 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl md:text-7xl cursor-pointer hover:scale-105 transition-transform duration-300">
+            <h1 className="mb-4 bg-gradient-to-r from-white via-emerald-100 to-amber-200 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl md:text-7xl cursor-pointer hover:scale-105 transition-transform duration-300">
               Utsab Raj Acharya
             </h1>
 
-            <h2 className="mb-6 text-lg font-medium text-cyan-400 sm:text-xl md:text-2xl cursor-pointer hover:text-cyan-300 transition-colors duration-300">
+            <h2 className="mb-6 text-lg font-medium text-emerald-400 sm:text-xl md:text-2xl cursor-pointer hover:text-emerald-300 transition-colors duration-300">
               AI  &bull; Data Science Enthusiast &bull; Developer
             </h2>
 
@@ -29,7 +29,7 @@ export default function Hero() {
 
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
               <a href="#projects" className="w-full sm:w-auto">
-                <MagneticButton className="flex w-full items-center justify-center gap-2 bg-gradient-to-r from-cyan-600 to-cyan-500 text-white hover:from-cyan-500 hover:to-cyan-400 shadow-[0_0_20px_rgba(91,192,190,0.3)]">
+                <MagneticButton className="flex w-full items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white hover:from-emerald-500 hover:to-emerald-400 shadow-[0_0_20px_rgba(52,211,153,0.3)]">
                   View Projects
                   <ArrowRight className="h-4 w-4" />
                 </MagneticButton>

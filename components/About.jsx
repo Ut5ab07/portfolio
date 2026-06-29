@@ -12,9 +12,9 @@ export default function About() {
           <div className="flex flex-col gap-12 md:flex-row md:items-center">
             {/* Left Side: Photo Placeholder */}
             <div className="w-full md:w-1/3 flex justify-center">
-              <div className="relative group cursor-pointer h-64 w-64 md:h-80 md:w-80 overflow-hidden rounded-2xl border border-white/20 shadow-[0_0_30px_rgba(91,192,190,0.1)] hover:shadow-[0_0_50px_rgba(91,192,190,0.5)] hover:border-cyan-400/60 transition-all duration-500 ease-in-out bg-slate-800/50">
+              <div className="relative group cursor-pointer h-64 w-64 md:h-80 md:w-80 overflow-hidden rounded-2xl border border-white/20 shadow-[0_0_30px_rgba(52,211,153,0.1)] hover:shadow-[0_0_50px_rgba(52,211,153,0.5)] hover:border-emerald-400/60 transition-all duration-500 ease-in-out bg-zinc-800/50">
                 {/* Fallback pattern since profile.jpg might not exist initially */}
-                <div className="absolute inset-0 flex items-center justify-center text-slate-500 text-sm italic">
+                <div className="absolute inset-0 flex items-center justify-center text-zinc-500 text-sm italic">
                   Image Placeholder
                 </div>
                 <Image
@@ -32,7 +32,7 @@ export default function About() {
               <div className="flex items-center w-full mb-6 cursor-pointer">
                 <div className="flex-grow h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
                 <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight md:text-4xl px-4 sm:px-6 whitespace-normal sm:whitespace-nowrap text-center">
-                  About Me<span className="text-cyan-400">.</span>
+                  About Me<span className="text-emerald-400">.</span>
                 </h2>
                 <div className="flex-grow h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
               </div>

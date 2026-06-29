@@ -32,7 +32,7 @@ export default function CursorGlow() {
       style={{
         x: cursorXSpring,
         y: cursorYSpring,
-        background: "radial-gradient(circle, rgba(91, 192, 190, 0.08) 0%, rgba(0, 0, 0, 0) 60%)",
+        background: "radial-gradient(circle, rgba(52, 211, 153, 0.08) 0%, rgba(0, 0, 0, 0) 60%)",
       }}
     />
   );
