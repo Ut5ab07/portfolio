@@ -14,8 +14,8 @@ export default function CursorGlow() {
   useEffect(() => {
     setMounted(true);
     const moveCursor = (e) => {
-      cursorX.set(e.clientX - 400); // offset by half width/height
-      cursorY.set(e.clientY - 400);
+      cursorX.set(e.clientX - 300); // offset by half width/height
+      cursorY.set(e.clientY - 300);
     };
 
     window.addEventListener("mousemove", moveCursor);
@@ -28,11 +28,11 @@ export default function CursorGlow() {
 
   return (
     <motion.div
-      className="pointer-events-none fixed inset-0 z-0 h-[800px] w-[800px] rounded-full"
+      className="pointer-events-none fixed inset-0 z-0 h-[600px] w-[600px] rounded-full"
       style={{
         x: cursorXSpring,
         y: cursorYSpring,
-        background: "radial-gradient(circle, rgba(52, 211, 153, 0.08) 0%, rgba(0, 0, 0, 0) 60%)",
+        background: "radial-gradient(circle, rgba(251, 191, 36, 0.03) 0%, rgba(0, 0, 0, 0) 65%)",
       }}
     />
   );

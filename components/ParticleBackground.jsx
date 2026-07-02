@@ -21,60 +21,65 @@ export default function ParticleBackground() {
       id="tsparticles"
       className="fixed inset-0 -z-10 w-full h-full"
       options={{
-        fpsLimit: 60,
+        fpsLimit: 120,
         particles: {
           color: {
-            value: "#34d399",
+            value: "#fbbf24", // Warm amber-yellow
           },
           links: {
-            color: "#34d399",
-            distance: 120,
-            enable: true,
-            opacity: 0.2,
-            width: 1,
+            enable: false, // Remove connecting lines
           },
           move: {
             enable: true,
-            speed: 0.5,
+            speed: { min: 0.1, max: 0.4 }, // Slow motion
             direction: "none",
             random: true,
             straight: false,
             outModes: {
-              default: "bounce", // Keep them on screen
+              default: "out", // Particles float out and wrap/respawn
             },
           },
           number: {
             density: {
               enable: true,
-              area: 400, // Reduced area increases density per square pixel
+              area: 800,
             },
-            value: 300, // Significantly increased particle count
-            limit: 400, // Increased hard limit
+            value: 80, // Lower count for elegant, sparse fireflies
           },
           opacity: {
-            value: 0.5,
+            value: { min: 0.1, max: 0.8 },
+            animation: {
+              enable: true,
+              speed: 1, // Glowing speed
+              minimumValue: 0.1,
+              sync: false, // Blinking independently
+            },
           },
           shape: {
             type: "circle",
           },
           size: {
-            value: { min: 1, max: 3 },
+            value: { min: 1, max: 4 },
+            animation: {
+              enable: true,
+              speed: 1.5,
+              minimumValue: 1,
+              sync: false,
+            },
           },
         },
         interactivity: {
           events: {
             onHover: {
               enable: true,
-              mode: "grab", // React slightly to cursor hover
+              mode: "repulse", // Fireflies scatter when cursor approaches
             },
             resize: true,
           },
           modes: {
-            grab: {
-              distance: 150,
-              links: {
-                opacity: 0.3,
-              },
+            repulse: {
+              distance: 120,
+              duration: 0.5,
             },
           },
         },
