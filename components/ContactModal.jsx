@@ -227,7 +227,7 @@ export default function ContactModal({ isOpen, onClose }) {
                     </motion.p>
                   )}
 
-                  <MagneticButton className="flex items-center justify-center gap-2 mt-4 bg-gradient-to-r from-[#34d399] to-[#fbbf24] text-white py-3.5 rounded-xl border border-transparent hover:shadow-[0_0_20px_rgba(52,211,153,0.4)] disabled:opacity-50 w-full" disabled={status === "loading"}>
+                  <MagneticButton className="flex items-center justify-center gap-2 mt-4 bg-emerald-500 hover:bg-emerald-600 text-white py-3.5 rounded-xl border border-transparent hover:shadow-[0_0_20px_rgba(52,211,153,0.4)] disabled:opacity-50 transition-colors duration-300 w-full" disabled={status === "loading"}>
                     {status === "loading" ? (
                       <Loader2 className="w-5 h-5 animate-spin" />
                     ) : (

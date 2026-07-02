@@ -44,16 +44,16 @@ export default function Learning() {
             line-height: 1.3;
             font-size: 0.95rem;
             backdrop-filter: blur(8px);
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
             animation: pulse-glow 4s ease-in-out infinite;
             cursor: pointer;
             transition: all 0.3s ease;
           }
 
           .center-node:hover {
-            border-color: rgba(168, 85, 247, 0.8);
-            background: rgba(168, 85, 247, 0.25);
-            box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
+            border-color: rgba(163, 230, 53, 0.8);
+            background: rgba(163, 230, 53, 0.25);
+            box-shadow: 0 0 30px rgba(163, 230, 53, 0.6);
           }
 
           .orbit-node {
