@@ -14,7 +14,7 @@ export default function Hero() {
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         >
           <GlassCard className="flex flex-col items-center p-6 sm:p-10 text-center md:p-16">
-            <h1 className="mb-4 bg-gradient-to-r from-white via-emerald-100 to-amber-200 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl md:text-7xl cursor-pointer hover:scale-105 transition-transform duration-300">
+            <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-7xl cursor-pointer hover:scale-105 transition-transform duration-300">
               Utsab Raj Acharya
             </h1>
 
