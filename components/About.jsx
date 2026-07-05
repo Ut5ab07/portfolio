@@ -21,7 +21,7 @@ export default function About() {
                   src={profilePic}
                   alt="Utsab"
                   fill
-                  className="object-cover z-10 opacity-0 filter grayscale hover:grayscale-0 transform transition-all duration-500 ease-in-out group-hover:scale-110"
+                  className="object-cover z-10 opacity-0 transition-opacity duration-500 ease-in-out"
                   onLoadingComplete={(img) => img.classList.remove("opacity-0")}
                 />
               </div>
