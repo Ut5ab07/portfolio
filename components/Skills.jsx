@@ -21,6 +21,7 @@ const skillsData = [
   {
     category: "Backend & DataBase",
     skills: [
+      { name: "Django", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg" alt="Django" className="w-8 h-8 md:w-10 md:h-10 bg-white rounded p-1 object-contain" /> },
       { name: "Flask", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" alt="Flask" className="w-8 h-8 md:w-10 md:h-10 bg-white rounded p-1 object-contain" /> },
       { name: "PostgreSQL", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" className="w-8 h-8 md:w-10 md:h-10" /> }
     ]
