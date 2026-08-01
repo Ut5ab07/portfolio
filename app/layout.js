@@ -2,7 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import ParticleBackground from "@/components/ParticleBackground";
-import ScrollProgressBar from "@/components/ScrollProgressBar";
+
 import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -43,9 +43,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} min-h-screen antialiased selection:bg-emerald-500/30`}>
-        <ParticleBackground />
-        <ScrollProgressBar />
 
+        <ParticleBackground />
         <Navbar />
         {children}
         <Analytics />
