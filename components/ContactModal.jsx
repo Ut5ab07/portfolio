@@ -141,9 +141,9 @@ export default function ContactModal({ isOpen, onClose }) {
 
           {/* Modal Content */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
             transition={{ type: "spring", duration: 0.5, bounce: 0.3 }}
             className="relative z-10 w-full max-w-lg bg-neutral-900/90 border border-white/10 rounded-2xl shadow-2xl overflow-hidden backdrop-blur-xl pointer-events-auto"
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal

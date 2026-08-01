@@ -9,10 +9,7 @@ export default function Hero() {
   return (
     <section className="relative flex min-h-screen w-full flex-col items-center justify-center px-6 pt-20">
       <SectionWrapper delay={0.2} className="z-10 w-full max-w-4xl">
-        <motion.div
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        >
+        <motion.div>
           <GlassCard className="flex flex-col items-center p-6 sm:p-10 text-center md:p-16">
             <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-7xl cursor-pointer hover:scale-105 transition-transform duration-300">
               Utsab Raj Acharya
