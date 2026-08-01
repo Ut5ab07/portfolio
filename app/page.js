@@ -3,7 +3,6 @@ import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import GithubActivity from "@/components/GithubActivity";
-import Learning from "@/components/Learning";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -17,9 +16,8 @@ export default function Home() {
         <About />
         <Skills />
         <Projects />
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex justify-center relative z-10">
           <GithubActivity />
-          <Learning />
         </div>
         <Contact />
       </div>
