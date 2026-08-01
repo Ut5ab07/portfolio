@@ -48,7 +48,25 @@ const PROJECTS_DATA = [
     ],
     tech: ["Python", "NetworkX", "Pandas", "Flask", "HTML", "CSS", "JavaScript"],
     githubLink: "https://github.com/Ut5ab07/Movie_recommendation"
+  },
+    {
+    id: 4,
+    title: "AI Learning Platform API",
+    description: "A full-stack AI learning platform built with Django REST Framework, HTML, CSS, and JavaScript, featuring secure authentication, course enrollment, lesson progress tracking, and course reviews.",
+    fullDescription: "A scalable backend for an AI learning platform inspired by modern e-learning systems. The API supports secure user authentication, course discovery, enrollments, lesson progress tracking, and review management while following production-ready backend practices such as JWT authentication, object-level permissions, filtering, pagination and modular application design.",
+    features: [
+      "Secure user authentication with JWT",
+      "Browse and search AI courses",
+      "Course enrollment, progress tracking, ratings and reviews",
+      "Filtering, searching, and pagination",
+      "Role-based and object-level permissions",
+      "RESTful API with modular Django app structure",
+      "Responsive and intuitive user interface built with HTML, CSS, and JavaScript"
+    ],
+    tech: ["Python","Django REST Framework", "HTML", "CSS", "JavaScript","JWT Authentication"],
+    githubLink: "https://github.com/Ut5ab07/learning-platform-api"
   }
+
 ];
 
 export default function Projects() {
