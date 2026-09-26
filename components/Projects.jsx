@@ -20,6 +20,7 @@ const PROJECTS_DATA = [
     tech: ["Python", "SentenceTransformers", "FAISS", "Pandas"],
     githubLink: "https://github.com/Ut5ab07/semantic-movie-search-engine"
   },
+
     {
     id: 2,
     title: "FIFA World Cup 2022 Best XI – Statistical Player Analysis",
@@ -51,6 +52,21 @@ const PROJECTS_DATA = [
   },
     {
     id: 4,
+    title: "AI Data Analysis Agent",
+    description: "An AI-powered data analysis assistant that allows users to explore CSV datasets using natural language.",
+    fullDescription: "An AI-powered data analysis assistant that allows users to explore CSV datasets using natural language. The agent uses Gemini to generate Pandas analysis code, executes it on the uploaded dataset, automatically recovers from code errors, and generates visualizations when appropriate.",
+    features: [
+      "Upload and analyze CSV datasets using natural-language questions.",
+      "Generate and execute Pandas analysis code using Gemini.",
+      "Automatically detect and recover from code execution errors.",
+      "Generate natural-language insights and visualizations from analysis results.",
+      "Preview datasets, inspect results, and view generated code through a Streamlit interface.”"
+    ],
+    tech: ["Python", "Pandas", "Streamlit", "Matplotlib","Google Gemini API"],
+    githubLink: "https://github.com/Ut5ab07/data-analyst-agent"
+  },
+    {
+    id: 5,
     title: "AI Learning Platform API",
     description: "A full-stack AI learning platform built with Django REST Framework, HTML, CSS, and JavaScript, featuring secure authentication, course enrollment, lesson progress tracking, and course reviews.",
     fullDescription: "A scalable backend for an AI learning platform inspired by modern e-learning systems. The API supports secure user authentication, course discovery, enrollments, lesson progress tracking, and review management while following production-ready backend practices such as JWT authentication, object-level permissions, filtering, pagination and modular application design.",
