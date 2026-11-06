@@ -1,0 +1,5 @@
+/* Page-level reset only. Every section styles itself under its own root class (.px-root / .tl-root / .ct-root).
+   Do not add overflow:hidden/auto to html, body or #root: Projects and Contact rely on position:sticky. */
+html,body{margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{background:#050506;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}

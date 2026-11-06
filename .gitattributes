@@ -1,0 +1,11 @@
+# Normalise line endings for text; never convert or diff the 3D assets and images (core.autocrlf must not touch them).
+* text=auto
+*.bin binary
+*.hdr binary
+*.glb binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.webp binary
+*.ktx2 binary
+*.gz binary

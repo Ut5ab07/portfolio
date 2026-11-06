@@ -1,0 +1,33 @@
+/* Shared navbar — same layout and typography as the standalone section previews; colours come from the active section. */
+.pf-nav{position:fixed;top:0;left:0;right:0;height:60px;z-index:100;display:flex;justify-content:flex-start;align-items:center;gap:clamp(14px,3.4vw,52px);padding:0 16px;font:12px "Helvetica Neue",Arial,sans-serif;letter-spacing:.22em;white-space:nowrap;overflow-x:auto;scrollbar-width:none;background:linear-gradient(var(--nav-shade),transparent);pointer-events:none;transition:background .6s}
+.pf-nav::-webkit-scrollbar{display:none}
+.pf-nav a{flex:none;color:var(--nav-fg);text-decoration:none;text-shadow:var(--nav-glow);pointer-events:auto;padding:12px 0;transition:color .6s}
+/* auto margins centre the links when they fit, yet let an overflowing bar scroll from its first item */
+.pf-nav a:first-child{margin-left:auto}.pf-nav a:last-child{margin-right:auto}
+.pf-nav a:hover{color:var(--nav-on)}
+.pf-nav a.pf-nav-on{color:var(--nav-on)}
+.pf-nav a:focus-visible{outline:1px solid var(--nav-on);outline-offset:4px}
+/* Edition switch: its own unit in the top-right corner, outside the row of section links. A phone glyph in a hairline box,
+   tinted like the bar; the link itself is a 44px target. */
+.pf-edition{position:fixed;top:8px;right:clamp(8px,1.6vw,24px);z-index:101;display:flex;align-items:center;justify-content:center;width:44px;height:44px;color:var(--nav-fg);transition:color .6s}
+.pf-edition-box{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid color-mix(in srgb,var(--nav-fg) 50%,transparent);border-radius:3px;background:color-mix(in srgb,var(--nav-shade) 60%,transparent);transition:border-color .3s,background .3s}
+.pf-edition svg{width:16px;height:16px;fill:currentColor}
+.pf-edition:hover{color:var(--nav-on)} .pf-edition:hover .pf-edition-box{border-color:var(--nav-on)}
+.pf-edition:focus-visible{outline:none} .pf-edition:focus-visible .pf-edition-box{outline:1px solid var(--nav-on);outline-offset:3px}
+/* Small screens: tighter tracking; if the bar still overflows it scrolls and the active item is kept in view (Navbar.jsx). */
+@media(max-width:700px){.pf-nav{gap:20px;font-size:11px;letter-spacing:.16em;padding:0 18px}}
+/* Phones: all five names stay on screen, in tighter type. Each link is a full 44px finger target
+   (the bar's height comes from the links; the visual weight stays the same). */
+@media(max-width:600px){
+  .pf-nav{height:56px;gap:0;padding:0 4px;justify-content:center;overflow:visible;font-size:clamp(9.5px,2.9vw,11px);letter-spacing:.06em}
+  .pf-nav a{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:0 6px;margin:0}
+  .pf-nav a:first-child,.pf-nav a:last-child{margin:0}
+  /* the links leave room on the right for the edition switch */
+  .pf-nav{padding-right:46px}
+  .pf-edition{top:6px;right:2px}
+}
+/* the narrowest phones: one pixel less per side keeps the five links clear of the switch */
+@media(max-width:380px){.pf-nav a{padding:0 5px}}
+/* the smallest phones (320px): a little tighter again, and a smaller box, so the links and the switch never meet */
+@media(max-width:340px){.pf-nav{padding-right:40px}.pf-nav a{padding:0 4px}.pf-edition{width:40px}.pf-edition-box{width:28px;height:28px}.pf-edition svg{width:14px;height:14px}}
+@media(prefers-reduced-motion:reduce){.pf-nav,.pf-nav a,.pf-edition,.pf-edition-box{transition:none}}

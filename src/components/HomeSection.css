@@ -1,0 +1,52 @@
+/* Home — Arrakis. Everything scoped to .hm-root; keyframes prefixed hm-. */
+.hm-root{position:relative;height:100vh;height:100svh;min-height:560px;overflow:clip;isolation:isolate;color:#f1e7d6;font-family:"Helvetica Neue",Inter,Arial,sans-serif;
+  /* backdrop shown until the first frame (and as the no-WebGL fallback): dusty sky over shadowed dunes, same palette as the scene */
+  background:linear-gradient(180deg,#5a3418 0%,#9a6430 24%,#c99550 40%,#b2763a 45%,#7a3f1a 57%,#4a2410 76%,#2c140a 100%)}
+.hm-root *{box-sizing:border-box;margin:0}
+.hm-stage{position:absolute;inset:0;z-index:0}
+.hm-gl{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 1.6s ease}
+.hm-ready .hm-gl{opacity:1}
+/* grade: soft vignette + a low, warm-dark falloff behind the title (no panel) */
+.hm-grade{position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(ellipse 120% 90% at 50% 45%,transparent 55%,rgba(24,10,4,.42)),
+  radial-gradient(ellipse 60% 55% at 12% 78%,rgba(28,11,4,.5),transparent 70%),
+  linear-gradient(transparent 70%,rgba(20,8,3,.35))}
+.hm-fallback .hm-gl{display:none}
+
+.hm-content{position:absolute;z-index:2;left:clamp(24px,7vw,120px);bottom:clamp(64px,13vh,150px);width:min(640px,86vw)}
+.hm-label{font-size:11px;letter-spacing:.34em;color:#d6c3a1;text-shadow:0 1px 10px rgba(20,12,4,.6)}
+.hm-title{margin-top:20px;font-family:"Helvetica Neue","Segoe UI",Inter,Arial,sans-serif;font-weight:300;font-size:clamp(36px,4.7vw,74px);line-height:1.04;letter-spacing:-.008em;color:#f4ead9;text-shadow:0 2px 24px rgba(18,10,4,.45)}
+.hm-desc{margin-top:22px;max-width:46ch;font-size:clamp(15px,1.15vw,17px);line-height:1.62;color:#ddd0ba;text-shadow:0 1px 14px rgba(18,10,4,.7)}
+.hm-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 34px;margin-top:34px}
+.hm-btn{display:inline-flex;align-items:center;min-height:46px;font-size:11px;letter-spacing:.28em;color:#f1e7d6;text-decoration:none;transition:color .35s,border-color .35s,background .35s}
+.hm-primary{padding:0 26px;border:1px solid rgba(241,231,214,.55);background:rgba(20,12,6,.12)}
+.hm-primary:hover{border-color:#e2b26e;background:rgba(226,178,110,.12);color:#fff6e8}
+.hm-secondary{position:relative;padding:0 2px}
+.hm-secondary::before{content:"";position:absolute;left:2px;right:26px;bottom:11px;height:1px;background:rgba(241,231,214,.4);transition:background .35s}
+.hm-secondary::after{content:"\2192";margin-left:12px;letter-spacing:0;font-size:14px;transition:transform .35s}
+.hm-secondary:hover{color:#f3c785}.hm-secondary:hover::before{background:#e2b26e}.hm-secondary:hover::after{transform:translateX(4px)}
+.hm-btn:focus-visible,.hm-scroll:focus-visible{outline:1px solid #f4ead9;outline-offset:4px}
+
+.hm-scroll{position:absolute;z-index:2;left:50%;bottom:26px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;font-size:10px;letter-spacing:.34em;color:#cdb998;text-decoration:none;text-shadow:0 1px 8px rgba(20,12,4,.6)}
+.hm-scroll::after{content:"";width:1px;height:34px;background:linear-gradient(#cdb998,transparent);animation:hm-drip 2.4s ease-in-out infinite}
+@keyframes hm-drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* the introduction settles in once the land has appeared */
+/* the introduction appears with the first paint, whatever the scene is doing; the scene then fades in behind it */
+.hm-content>*{animation:hm-in .9s ease both}
+.hm-content>:nth-child(2){animation-delay:.08s}.hm-content>:nth-child(3){animation-delay:.16s}.hm-content>:nth-child(4){animation-delay:.24s}
+@keyframes hm-in{from{opacity:.01;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+@media(max-width:760px){
+  .hm-content{left:22px;right:22px;width:auto;bottom:76px}
+  .hm-scroll{bottom:16px}.hm-scroll span{display:none}.hm-scroll::after{height:26px}
+  .hm-title{font-size:clamp(32px,9vw,44px);margin-top:14px}
+  .hm-label{font-size:10px;letter-spacing:.18em;line-height:1.7}
+  .hm-desc{margin-top:16px;font-size:15px}
+  .hm-actions{margin-top:26px;gap:10px 26px}
+  .hm-grade{background:radial-gradient(ellipse 120% 90% at 50% 40%,transparent 50%,rgba(18,11,6,.4)),linear-gradient(transparent 38%,rgba(18,10,5,.55) 75%,rgba(14,8,4,.7))}
+}
+@media(prefers-reduced-motion:reduce){.hm-gl{transition:none}.hm-content>*{animation:none}.hm-scroll::after{animation:none}}
+
+/* touch: the scroll cue is only a short line on phones; give it a finger-sized target (the line stays where it is) */
+@media (pointer:coarse){.hm-scroll{min-width:44px;min-height:44px;justify-content:flex-end}}

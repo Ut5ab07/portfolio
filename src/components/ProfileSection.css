@@ -1,0 +1,169 @@
+/* Profile (02) — the Contact Zone. Everything is scoped under .pz-root; keyframes are prefixed pz-.
+   The stage (canvas + shading + instrument overlays) is sticky and viewport-tall; the content scrolls over it when it is
+   taller than the screen. No overflow:hidden on the root, so sticky keeps working. */
+.pz-root{
+  --pz-ink:#e9e7e1;--pz-soft:#cfd2d0;--pz-dim:#a3abb0;--pz-faint:#7f888e;--pz-line:rgba(233,231,225,.2);
+  --pz-mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  position:relative;isolation:isolate;color:var(--pz-ink);background:#5f676c;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;
+}
+.pz-root *,.pz-root *::before,.pz-root *::after{box-sizing:border-box}
+
+/* ---- stage ---- */
+.pz-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;
+  background:linear-gradient(180deg,#4f585e 0,#7f878c 38%,#8b9296 47%,#3c423f 55%,#1c201f 100%)}
+.pz-gl{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 1.4s ease}
+.pz-ready .pz-gl{opacity:1}
+.pz-fallback .pz-gl{display:none}
+/* a dark threshold at the top (out of the desert night), a scrim for the dossier, and the floor fading toward Projects */
+.pz-shade{position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(180deg,rgba(14,12,11,.85) 0,rgba(14,13,12,.4) 9%,rgba(14,14,14,0) 20%),
+  linear-gradient(0deg,rgba(6,7,8,.82) 0,rgba(6,7,8,0) 24%),
+  linear-gradient(90deg,rgba(15,18,21,.68) 0,rgba(15,18,21,.5) 34%,rgba(15,18,21,.22) 48%,rgba(15,18,21,0) 62%)}
+
+/* range bracket around the structure (positioned per frame by the scene) */
+.pz-bracket{position:absolute;left:0;top:0;width:0;height:0;pointer-events:none;opacity:0;transition:opacity 1.2s ease .9s;will-change:transform}
+.pz-ready.pz-in .pz-bracket,.pz-ready:not(.pz-armed) .pz-bracket{opacity:1}
+.pz-bracket i{position:absolute;width:14px;height:14px;border:0 solid rgba(233,231,225,.62);filter:drop-shadow(0 0 2px rgba(18,22,26,.45))}
+.pz-bracket i:nth-child(1){left:-18px;top:-18px;border-left-width:1px;border-top-width:1px}
+.pz-bracket i:nth-child(2){right:-18px;top:-18px;border-right-width:1px;border-top-width:1px}
+.pz-bracket i:nth-child(3){left:-18px;bottom:-18px;border-left-width:1px;border-bottom-width:1px}
+.pz-bracket i:nth-child(4){right:-18px;bottom:-18px;border-right-width:1px;border-bottom-width:1px}
+.pz-bracket-label{position:absolute;left:-18px;top:calc(100% + 22px);padding:5px 9px;background:rgba(16,19,22,.42);white-space:nowrap;font:10px/1 var(--pz-mono);letter-spacing:.2em;color:rgba(240,239,235,.86);text-shadow:0 0 6px rgba(22,26,30,.75),0 0 2px rgba(22,26,30,.6)}
+.pz-bracket-label b{font-weight:400;color:#fff}
+
+.pz-readout{position:absolute;right:clamp(20px,3vw,44px);bottom:28px;display:flex;flex-direction:column;align-items:flex-end;gap:6px;
+  font:10px/1 var(--pz-mono);letter-spacing:.2em;color:rgba(233,231,225,.55);pointer-events:none}
+.pz-readout em{font-style:normal;color:rgba(233,231,225,.32);margin-right:10px}
+
+/* ---- content ---- */
+.pz-content{position:relative;z-index:2;margin-top:-100vh;margin-top:-100svh;min-height:100vh;min-height:100svh;
+  --pz-pad:clamp(24px,7vw,120px);padding:92px var(--pz-pad) 56px;display:flex;flex-direction:column;justify-content:center}
+.pz-layout{display:grid;grid-template-columns:minmax(0,var(--pz-col,min(520px,calc(50vw - var(--pz-pad))))) minmax(0,1fr);align-items:start}
+.pz-main{min-width:0;display:flex;flex-direction:column}
+
+.pz-kicker{margin:0 0 18px;font:10.5px/1 var(--pz-mono);letter-spacing:.24em;color:var(--pz-dim);display:flex;align-items:center;gap:12px}
+.pz-kicker span:first-child{color:var(--pz-ink)}
+.pz-sep{width:28px;height:1px;background:var(--pz-line)}
+
+/* the portrait: an identification photograph, in the scene's cool grey. Sized from the viewport (the file is 469 px wide, so
+   it is never enlarged) and kept clear of the structure and the equipment on short screens. */
+.pz-photo{grid-column:2;justify-self:end;position:relative;margin:-28.5px 0 0;width:clamp(220px,min(19vw,33vh),280px);aspect-ratio:4/5;background:rgba(18,22,25,.5);outline:1px solid var(--pz-line);overflow:hidden}
+.pz-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.74) contrast(.96) brightness(.95)}
+.pz-has-photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(38,47,55,.42) 0,rgba(38,47,55,.14) 34%,rgba(38,47,55,.1) 100%)}
+.pz-photo-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  background:repeating-linear-gradient(0deg,rgba(233,231,225,.035) 0 1px,transparent 1px 4px)}
+.pz-photo-empty span{font-weight:200;font-size:30px;letter-spacing:.12em;color:rgba(233,231,225,.7);margin-right:-.12em}
+.pz-photo-empty small{font:8px/1.2 var(--pz-mono);letter-spacing:.16em;color:var(--pz-faint);text-align:center}
+.pz-corner{position:absolute;z-index:1;width:12px;height:12px;border:0 solid rgba(233,231,225,.75)}
+.pz-corner:nth-of-type(1){left:6px;top:6px;border-left-width:1px;border-top-width:1px}
+.pz-corner:nth-of-type(2){right:6px;top:6px;border-right-width:1px;border-top-width:1px}
+.pz-corner:nth-of-type(3){left:6px;bottom:6px;border-left-width:1px;border-bottom-width:1px}
+.pz-corner:nth-of-type(4){right:6px;bottom:6px;border-right-width:1px;border-bottom-width:1px}
+.pz-scan{position:absolute;z-index:1;left:0;right:0;top:0;height:1px;opacity:0;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(233,231,225,.9) 20%,rgba(233,231,225,.9) 80%,transparent);
+  box-shadow:0 0 10px 1px rgba(233,231,225,.28)}
+
+.pz-who{min-width:0}
+.pz-status{margin:0 0 10px;font:10px/1 var(--pz-mono);letter-spacing:.2em;color:var(--pz-dim);display:flex;align-items:center;gap:9px}
+.pz-dot{width:5px;height:5px;border-radius:50%;background:var(--pz-ink);flex:none}
+.pz-code{color:var(--pz-faint);margin-left:6px}
+.pz-st-wait{display:none}
+.pz-armed:not(.pz-ok) .pz-st-wait{display:inline}
+.pz-armed:not(.pz-ok) .pz-st-ok{display:none}
+.pz-armed.pz-in:not(.pz-ok) .pz-dot{animation:pz-blink .7s steps(2,jump-none) infinite}
+.pz-name{margin:0;font-weight:300;font-size:clamp(30px,3.3vw,46px);line-height:1.05;letter-spacing:.015em;color:var(--pz-ink)}
+.pz-role{margin:9px 0 0;font:11px/1.2 var(--pz-mono);letter-spacing:.24em;text-transform:uppercase;color:var(--pz-soft)}
+.pz-meta{display:flex;flex-wrap:wrap;gap:6px 24px;margin:14px 0 0}
+.pz-meta div{display:flex;gap:9px;align-items:baseline}
+.pz-meta dt{font:9.5px/1 var(--pz-mono);letter-spacing:.2em;color:var(--pz-faint)}
+.pz-meta dd{margin:0;font-size:13px;color:var(--pz-soft)}
+
+.pz-intro{margin:26px 0 26px;max-width:54ch;font-size:15.5px;line-height:1.65;color:#dcdeda;font-weight:300}
+
+.pz-tabs{display:flex;flex-wrap:nowrap;gap:0 30px;border-bottom:1px solid var(--pz-line)}
+.pz-tab{flex:none;appearance:none;background:none;border:0;border-bottom:1px solid transparent;margin:0 0 -1px;padding:11px 0 10px;cursor:pointer;
+  font:10.5px/1 var(--pz-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--pz-dim);transition:color .25s,border-color .25s}
+.pz-tab:hover{color:var(--pz-ink)}
+.pz-tab.pz-on{color:var(--pz-ink);border-bottom-color:var(--pz-ink)}
+.pz-root :focus-visible{outline:1px solid var(--pz-ink);outline-offset:4px}
+
+/* the panels share one grid cell: the area is as tall as the tallest panel, whichever is shown (stable section height) */
+.pz-panels{display:grid}
+.pz-panel{grid-area:1/1;padding-top:18px;font-size:14.5px;line-height:1.6;color:var(--pz-soft);visibility:hidden}
+.pz-panel.pz-on{visibility:visible;animation:pz-fade .45s ease both}
+.pz-panel:focus-visible{outline-offset:6px}
+.pz-panel p{margin:0 0 12px;max-width:58ch}
+.pz-facts{margin:6px 0 0}
+.pz-facts div{display:grid;grid-template-columns:112px 1fr;gap:16px;padding:9px 0;border-top:1px solid var(--pz-line)}
+.pz-facts div:last-child{border-bottom:1px solid var(--pz-line)}
+.pz-facts dt{font:10px/1.9 var(--pz-mono);letter-spacing:.18em;text-transform:uppercase;color:var(--pz-faint)}
+.pz-facts dd{margin:0;color:var(--pz-ink);font-size:14px}
+.pz-pending{display:inline-block;padding:3px 9px;border:1px dashed rgba(233,231,225,.38);font:9.5px/1.2 var(--pz-mono);letter-spacing:.18em;text-transform:uppercase;color:var(--pz-dim)}
+
+.pz-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px 28px}
+.pz-list li{display:flex;flex-direction:column;gap:2px;padding-top:9px;border-top:1px solid var(--pz-line)}
+.pz-list b{font-weight:400;color:var(--pz-ink);font-size:14px}
+
+
+.pz-actions{display:flex;flex-wrap:wrap;gap:12px 36px;align-self:flex-start;margin-top:24px}
+.pz-next{padding:6px 0;font:10.5px/1 var(--pz-mono);letter-spacing:.22em;color:var(--pz-ink);text-decoration:none;border-bottom:1px solid var(--pz-line);transition:border-color .25s}
+.pz-next:hover{border-bottom-color:var(--pz-ink)}
+.pz-next span{display:inline-block;margin-left:8px;transition:transform .25s}
+.pz-next:hover span{transform:translateX(3px)}
+.pz-resume:hover span{transform:translateY(2px)}
+
+/* ---- the identification sequence (only when JS is running and motion is allowed) ---- */
+.pz-armed .pz-kicker,.pz-armed .pz-card,.pz-armed .pz-photo,.pz-armed .pz-intro,.pz-armed .pz-dossier,.pz-armed .pz-next,.pz-armed .pz-readout{opacity:0;transform:translateY(8px)}
+.pz-armed .pz-photo-empty,.pz-armed .pz-photo img{opacity:0}
+.pz-armed.pz-in .pz-kicker,.pz-armed.pz-in .pz-card,.pz-armed.pz-in .pz-photo,.pz-armed.pz-in .pz-intro,.pz-armed.pz-in .pz-dossier,.pz-armed.pz-in .pz-next,.pz-armed.pz-in .pz-readout{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
+.pz-armed.pz-in .pz-card,.pz-armed.pz-in .pz-photo{transition-delay:.08s}
+.pz-armed.pz-in .pz-intro{transition-delay:.5s}
+.pz-armed.pz-in .pz-dossier{transition-delay:.7s}
+.pz-armed.pz-in .pz-next{transition-delay:.85s}
+.pz-armed.pz-in .pz-readout{transition-delay:1.1s}
+.pz-armed.pz-in .pz-photo-empty,.pz-armed.pz-in .pz-photo img{opacity:1;transition:opacity .9s ease .45s}
+.pz-armed.pz-in .pz-scan{animation:pz-scan 1.25s cubic-bezier(.45,0,.4,1) .15s both}
+
+@keyframes pz-scan{0%{top:0;opacity:0}12%{opacity:1}88%{opacity:1}100%{top:calc(100% - 1px);opacity:0}}
+@keyframes pz-blink{0%{opacity:1}100%{opacity:.15}}
+@keyframes pz-fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* ---- tablet / small laptop ---- */
+@media (max-width:1100px){
+  .pz-layout{--pz-col:min(528px,calc(60vw - var(--pz-pad)))}
+  .pz-list{grid-template-columns:1fr}
+  .pz-list li{padding-top:7px}
+}
+/* ---- phones, narrow screens and portrait tablets: the scene first, the record below it ---- */
+@media (max-width:760px),(max-width:1100px) and (max-aspect-ratio:1/1){
+  .pz-shade{background:
+    linear-gradient(180deg,rgba(13,13,13,.72) 0,rgba(13,13,13,0) 14%),
+    linear-gradient(0deg,rgba(10,12,14,.9) 0,rgba(10,12,14,.55) 40%,rgba(10,12,14,0) 62%)}
+  .pz-content>*{max-width:660px}
+  .pz-content{--pz-pad:clamp(20px,6vw,64px);padding:58vh var(--pz-pad) 44px;padding:58svh var(--pz-pad) 44px;justify-content:flex-start;
+    background:linear-gradient(180deg,rgba(12,14,16,0) 0,rgba(12,14,16,0) calc(58svh - 120px),rgba(12,14,16,.78) calc(58svh + 120px),rgba(12,14,16,.9) 100%)}
+  .pz-readout{display:none}
+  .pz-bracket-label{display:none}
+  .pz-layout{display:flex;flex-direction:column;gap:20px}
+  .pz-photo{order:-1;margin:0;width:min(58vw,260px)}
+  .pz-name{font-size:28px}
+  .pz-intro{font-size:15px;margin:22px 0}
+  .pz-tabs{overflow-x:auto;scrollbar-width:none;gap:0 16px;margin-right:calc(-1 * clamp(20px,6vw,64px));padding-right:20px}
+  .pz-tabs::-webkit-scrollbar{display:none}
+  .pz-tab{flex:none;font-size:9.5px;letter-spacing:.1em}
+  .pz-facts div{grid-template-columns:96px 1fr;gap:12px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .pz-gl,.pz-bracket,.pz-tab,.pz-next,.pz-next span{transition:none}
+  .pz-panel{animation:none}
+}
+
+/* touch: finger-sized targets. The dossier tabs grow taller (their underline stays on the rule); the next-section link keeps
+   its look and gains an invisible hit area around it. */
+@media (pointer:coarse){
+  .pz-tab{padding:16px 0 15px;min-height:44px}
+  .pz-next{position:relative}
+  .pz-next::before{content:"";position:absolute;inset:-13px -10px}
+}

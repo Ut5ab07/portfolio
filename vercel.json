@@ -1,0 +1,17 @@
+{
+  "rewrites": [
+    { "source": "/cinematic", "destination": "/cinematic.html" },
+    { "source": "/mobile", "destination": "/mobile.html" },
+    { "source": "/", "has": [{ "type": "cookie", "key": "pf-edition", "value": "cinematic" }], "destination": "/cinematic.html" },
+    { "source": "/", "has": [{ "type": "cookie", "key": "pf-edition", "value": "mobile" }], "destination": "/mobile.html" },
+    { "source": "/", "has": [{ "type": "header", "key": "user-agent", "value": ".*(Mobi|Android|iPhone|iPad|iPod|Silk|Kindle|KFAPWI|BlackBerry|BB10|Opera Mini|IEMobile|webOS|Tablet).*" }], "destination": "/mobile.html" },
+    { "source": "/", "destination": "/cinematic.html" }
+  ],
+  "headers": [
+    { "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] },
+    { "source": "/stack-assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }] },
+    { "source": "/(.*)\\.html", "headers": [{ "key": "Cache-Control", "value": "no-cache" }] },
+    { "source": "/", "headers": [{ "key": "Cache-Control", "value": "no-cache" }, { "key": "Vary", "value": "User-Agent, Cookie" }] },
+    { "source": "/(cinematic|mobile)", "headers": [{ "key": "Cache-Control", "value": "no-cache" }] }
+  ]
+}

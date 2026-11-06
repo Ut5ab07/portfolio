@@ -1,0 +1,143 @@
+/* Stack (04): Mission Control. Everything scoped under .ms-root; keyframes prefixed ms-.
+   One viewport tall; the section never captures the wheel or touch scrolling. The panel scrolls inside itself only when its
+   list is longer than the space available. */
+.ms-root{
+  --ms-ink:#ece3d3;--ms-soft:#d2c6b4;--ms-dim:#a3927f;--ms-faint:#76685b;--ms-line:rgba(236,227,211,.18);--ms-amber:#d39a5f;--ms-cool:#86b3bf;
+  --ms-mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  position:relative;height:100vh;height:100svh;min-height:560px;overflow:hidden;isolation:isolate;
+  background:linear-gradient(180deg,#1a0f0c 0,#3f2219 48%,#1d1412 52%,#0f0c0b 100%);color:var(--ms-ink);
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;
+}
+.ms-root *,.ms-root *::before,.ms-root *::after{box-sizing:border-box}
+.ms-gl{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 1.2s ease;touch-action:pan-y}
+.ms-ready .ms-gl{opacity:1}
+.ms-fallback .ms-gl,.ms-fallback .ms-marks{display:none}
+.ms-shade{position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(180deg,rgba(8,6,5,.72) 0,rgba(8,6,5,0) 18%),
+  linear-gradient(0deg,rgba(8,6,5,.55) 0,rgba(8,6,5,0) 22%)}
+
+/* ---- header ---- */
+.ms-head{position:absolute;left:clamp(20px,5vw,72px);top:84px;z-index:3;pointer-events:none;max-width:min(440px,60vw);transition:opacity .3s}
+.ms-open-left .ms-head{opacity:0}
+.ms-kicker{margin:0 0 12px;display:flex;align-items:center;gap:12px;font:10.5px/1 var(--ms-mono);letter-spacing:.24em;color:var(--ms-dim)}
+.ms-kicker em{font-style:normal}
+.ms-kicker i{width:26px;height:1px;background:var(--ms-line)}
+.ms-title{margin:0;font-weight:200;font-size:clamp(28px,3.4vw,48px);letter-spacing:.06em;text-transform:uppercase;line-height:1.05;color:var(--ms-ink);text-shadow:0 1px 18px rgba(10,6,4,.5)}
+.ms-sub{margin:12px 0 0;font-size:14px;line-height:1.5;color:var(--ms-soft)}
+
+/* ---- station labels (positioned per frame by the scene) ---- */
+.ms-marks{position:absolute;inset:0;z-index:4;pointer-events:none}
+.ms-mark{position:absolute;left:0;top:0;pointer-events:auto;display:flex;align-items:center;gap:8px;padding:6px 10px 6px 8px;margin:0;
+  transform:translate3d(-999px,-999px,0);translate:-50% -100%;will-change:transform;
+  background:rgba(14,10,8,.62);border:1px solid var(--ms-line);color:var(--ms-ink);cursor:pointer;
+  font:10.5px/1 var(--ms-mono);letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;
+  transition:background-color .25s,border-color .25s,opacity .6s}
+.ms-root:not(.ms-ready) .ms-mark{opacity:0}
+.ms-mark::after{content:"";position:absolute;left:50%;top:100%;width:1px;height:14px;background:var(--ms-line)}
+.ms-mark-dot{width:6px;height:6px;border-radius:50%;background:var(--ms-cool);box-shadow:0 0 0 3px rgba(134,179,191,.18)}
+/* the name is always shown where there's room; on smaller screens the label is a dot that opens on hover, focus or selection */
+.ms-mark-l{max-width:0;margin-left:-8px;overflow:hidden;opacity:0;transition:max-width .35s ease,margin-left .35s ease,opacity .25s ease}
+.ms-mark:hover .ms-mark-l,.ms-mark:focus-visible .ms-mark-l,.ms-mark.ms-hot .ms-mark-l,.ms-mark.ms-sel .ms-mark-l{max-width:260px;margin-left:0;opacity:1}
+@media (min-width:1000px){.ms-mark-l{max-width:260px;margin-left:0;opacity:1}}
+.ms-mark:hover,.ms-mark.ms-hot,.ms-mark.ms-sel{background:rgba(24,16,12,.84);border-color:rgba(211,154,95,.6)}
+.ms-mark.ms-sel .ms-mark-dot{background:var(--ms-amber);box-shadow:0 0 0 3px rgba(211,154,95,.22)}
+.ms-mark[data-edge="left"]{translate:0 -50%}.ms-mark[data-edge="left"]::before{content:"←";margin-right:2px;color:var(--ms-amber)}
+.ms-mark[data-edge="right"]{translate:-100% -50%}.ms-mark[data-edge="right"]::before{content:"→";order:9;margin-left:2px;color:var(--ms-amber)}
+.ms-mark[data-edge="left"]::after,.ms-mark[data-edge="right"]::after{display:none}
+.ms-root :focus-visible{outline:1px solid var(--ms-amber);outline-offset:3px}
+
+/* ---- station rail ---- */
+.ms-rail{position:absolute;left:clamp(20px,5vw,72px);bottom:26px;z-index:7;display:flex;flex-wrap:wrap;gap:6px 0;border-top:1px solid var(--ms-line);padding-top:10px}
+.ms-rail-b{appearance:none;background:none;border:0;margin:0 22px 0 0;padding:6px 0;cursor:pointer;color:var(--ms-dim);
+  font:10.5px/1 var(--ms-mono);letter-spacing:.16em;text-transform:uppercase;transition:color .25s}
+.ms-rail-b:hover,.ms-rail-b.ms-sel{color:var(--ms-ink)}
+.ms-rail-b.ms-sel{box-shadow:inset 0 -1px 0 var(--ms-amber)}
+
+/* ---- technology panel ---- */
+.ms-panel{position:absolute;z-index:6;top:84px;max-height:calc(100% - 160px);right:clamp(16px,3vw,44px);width:min(460px,40vw);display:flex;flex-direction:column;
+  padding:20px 22px 18px;background:linear-gradient(180deg,rgba(16,11,9,.95),rgba(10,8,7,.93));border:1px solid var(--ms-line);
+  box-shadow:0 18px 60px rgba(0,0,0,.45);color:var(--ms-ink);overflow:hidden}
+.ms-panel[hidden]{display:none}
+.ms-panel.ms-on{animation:ms-in .35s ease both}
+.ms-panel.ms-left{right:auto;left:clamp(16px,3vw,44px)}
+.ms-panel::before,.ms-panel::after{content:"";position:absolute;width:14px;height:14px;border:0 solid var(--ms-amber);pointer-events:none}
+.ms-panel::before{left:-1px;top:-1px;border-left-width:1px;border-top-width:1px}
+.ms-panel::after{right:-1px;bottom:-1px;border-right-width:1px;border-bottom-width:1px}
+.ms-panel-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.ms-panel-top .ms-status{margin-right:auto}
+.ms-switch{display:flex;gap:4px}
+.ms-switch button{appearance:none;cursor:pointer;min-height:36px;padding:0 8px;background:none;border:1px solid var(--ms-line);color:var(--ms-dim);
+  font:10.5px/1 var(--ms-mono);letter-spacing:.08em;transition:color .2s,border-color .2s}
+.ms-switch button:hover{color:var(--ms-ink);border-color:rgba(211,154,95,.5)}
+.ms-switch button.ms-sel{color:var(--ms-amber);border-color:var(--ms-amber)}
+.ms-status{margin:0;display:flex;align-items:center;gap:8px;font:10.5px/1 var(--ms-mono);letter-spacing:.2em;color:var(--ms-soft)}
+.ms-status i{width:6px;height:6px;border-radius:50%;background:#8fb59a;box-shadow:0 0 0 3px rgba(143,181,154,.18)}
+@media (max-width:1199px){.ms-panel-top .ms-status{display:none}.ms-panel-top .ms-close{margin-left:auto}}
+.ms-close{appearance:none;cursor:pointer;white-space:nowrap;min-height:36px;padding:0 12px;background:rgba(255,255,255,.03);border:1px solid var(--ms-line);color:var(--ms-ink);
+  font:10.5px/1 var(--ms-mono);letter-spacing:.18em;transition:border-color .2s,background-color .2s}
+.ms-close span{margin-left:6px;font-size:14px;vertical-align:-1px}
+.ms-close:hover{border-color:var(--ms-amber);background:rgba(211,154,95,.08)}
+.ms-panel h3{margin:16px 0 8px;font-weight:300;font-size:clamp(22px,2vw,28px);line-height:1.15;letter-spacing:.01em;outline:none}
+.ms-desc{margin:0 0 14px;font-size:14px;line-height:1.55;color:var(--ms-soft)}
+.ms-groups{flex:1 1 auto;min-height:0;overflow-y:auto;margin:0 -8px;padding:0 8px 4px;scrollbar-width:thin;scrollbar-color:rgba(211,154,95,.4) transparent}
+.ms-group{padding-top:12px;border-top:1px solid var(--ms-line);margin-top:4px}
+.ms-group h4{margin:0 0 10px;font:10px/1.4 var(--ms-mono);font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--ms-dim)}
+.ms-group ul{list-style:none;margin:0 0 12px;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px}
+.ms-group li{display:flex;flex-direction:column;align-items:center;gap:7px;padding:11px 6px 9px;background:rgba(255,255,255,.025);border:1px solid rgba(236,227,211,.09);text-align:center}
+.ms-ico{width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(236,227,211,.2);background:rgba(236,227,211,.04);color:var(--ms-ink)}
+.ms-ico svg{width:55%;height:55%;fill:currentColor}
+.ms-mono b{font:600 9.5px/1 var(--ms-mono);letter-spacing:-.02em;color:var(--ms-amber)}
+.ms-nm{font-size:12px;line-height:1.25;color:var(--ms-ink);overflow-wrap:anywhere}
+
+@keyframes ms-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ---- tablets ---- */
+@media (max-width:1100px){
+  .ms-panel{width:min(440px,52vw)}
+}
+/* ---- phones: labels stay compact, the panel becomes a bottom sheet over the scene ---- */
+@media (max-width:760px){
+  .ms-head{top:74px}
+  .ms-sub{font-size:13px}
+  .ms-mark{padding:5px 8px 5px 6px;font-size:9.5px;letter-spacing:.12em}
+  .ms-rail{left:16px;right:16px;bottom:16px;gap:4px 0}
+  .ms-rail-b{margin-right:14px;font-size:9.5px;letter-spacing:.1em}
+  .ms-panel,.ms-panel.ms-left{left:10px;right:10px;width:auto;top:auto;bottom:10px;max-height:68%;padding:16px 16px 12px}
+  .ms-kicker em,.ms-kicker i{display:none}
+  .ms-panel-top{gap:6px}
+  .ms-close{padding:0 10px}
+  .ms-open .ms-rail,.ms-open .ms-head{opacity:0;pointer-events:none}
+  .ms-group ul{grid-template-columns:repeat(auto-fill,minmax(84px,1fr))}
+}
+@media (prefers-reduced-motion:reduce){
+  .ms-gl,.ms-mark,.ms-mark-l,.ms-close,.ms-rail-b{transition:none}
+  .ms-panel.ms-on{animation:none}
+}
+
+/* ---- phones: the station rail becomes a three-way console bar along the bottom ----
+   Portrait framing cannot show all three workstations at once, so the rail is the primary way to reach them: three equal,
+   finger-sized named keys in the facility's own instrument style; the open station keeps its amber mark. */
+@media (max-width:760px){
+  .ms-rail{left:10px;right:10px;bottom:10px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:0;
+    border:1px solid var(--ms-line);background:rgba(14,10,8,.72);backdrop-filter:none}
+  .ms-rail-b{margin:0;min-height:52px;padding:8px 6px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px;
+    text-align:left;font-size:9px;line-height:1.25;letter-spacing:.08em;color:var(--ms-soft);border-left:1px solid var(--ms-line)}
+  .ms-rail-b:first-child{border-left:0}
+  .ms-rail-b.ms-sel{color:var(--ms-ink);background:rgba(211,154,95,.1);box-shadow:inset 0 -2px 0 var(--ms-amber)}
+  .ms-rail-b:active{background:rgba(211,154,95,.16)}
+}
+/* touch: finger-sized station labels and panel controls, with a visible pressed state in place of hover */
+@media (pointer:coarse){
+  .ms-mark{min-width:40px;min-height:40px;padding:0 12px 0 10px;justify-content:center}
+  .ms-mark:active{background:rgba(24,16,12,.92);border-color:rgba(211,154,95,.8)}
+  .ms-switch button{min-height:40px}
+  .ms-close{min-height:40px}
+  .ms-rail-b{min-height:44px}
+}
+/* very narrow phones: keep the switcher and Close on one line */
+@media (max-width:360px){
+  .ms-panel-top{gap:4px}
+  .ms-switch{gap:3px}
+  .ms-switch button{padding:0 5px;font-size:9.5px;letter-spacing:.02em}
+  .ms-close{padding:0 7px;font-size:9.5px;letter-spacing:.04em}
+}

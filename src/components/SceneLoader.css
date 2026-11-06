@@ -1,0 +1,24 @@
+/* Scene loading mark (SceneLoader.jsx), top right of the section (free in every layout). Hidden unless its section's scene is
+   still being prepared; appears after a short delay. */
+.pf-loader{position:absolute;top:68px;right:clamp(20px,4vw,56px);display:flex;flex-direction:column;align-items:flex-end;gap:9px;
+  pointer-events:none;opacity:0;transition:opacity .5s ease;--pf-ink:236,231,221;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:9px;letter-spacing:.34em;text-transform:uppercase;color:rgba(var(--pf-ink),.62)}
+.pf-loader-line{position:relative;width:72px;height:1px;overflow:hidden;background:rgba(var(--pf-ink),.16)}
+.pf-loader-line::after{content:"";position:absolute;inset:0;width:40%;background:linear-gradient(90deg,transparent,rgba(var(--pf-ink),.85),transparent);animation:pf-loader-run 1.8s ease-in-out infinite;animation-play-state:var(--pf-run,paused)}
+.pf-loader-status{min-height:1em;font-size:8px;letter-spacing:.28em;color:rgba(var(--pf-ink),.48);font-variant-numeric:tabular-nums}
+@keyframes pf-loader-run{from{transform:translateX(-100%)}to{transform:translateX(250%)}}
+@media (prefers-reduced-motion:reduce){.pf-loader-line::after{animation:none;left:30%}}
+
+/* shown while the section's scene is not ready (and has not fallen back) */
+.hm-root:not(.hm-ready):not(.hm-fallback) .pf-loader,
+.pz-root:not(.pz-ready):not(.pz-fallback) .pf-loader,
+.px-root:not(.px-ready):not(.px-fallback) .pf-loader,
+.ms-root:not(.ms-ready):not(.ms-fallback) .pf-loader,
+.ct-root:not(.ct-ready):not(.ct-fallback) .pf-loader{opacity:1;transition-delay:.7s;--pf-run:running}
+
+/* each section's ink */
+.hm-root .pf-loader{--pf-ink:244,230,204}
+.pz-root .pf-loader{--pf-ink:236,234,228}
+.px-root .pf-loader{--pf-ink:230,233,236}
+.ms-root .pf-loader{--pf-ink:240,220,196}
+.ct-root .pf-loader{--pf-ink:232,227,216}
