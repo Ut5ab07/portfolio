@@ -1,5 +1,7 @@
 # Utsab Raj Acharya — Portfolio
 
+Live at **https://www.utsabrajacharya.com.np/** (phones and tablets get the mobile edition; `/cinematic` and `/mobile` open either directly).
+
 A single-page portfolio told as five cinematic, real-time 3D environments. Each section of the page is its own world, rendered
 in the browser with three.js and built from code: procedural terrain, shaders, fog and lighting, plus a small set of
 CC0-licensed models and textures in the Stack section.

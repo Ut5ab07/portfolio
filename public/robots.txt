@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://utsiuuu.vercel.app/sitemap.xml
+Sitemap: https://www.utsabrajacharya.com.np/sitemap.xml

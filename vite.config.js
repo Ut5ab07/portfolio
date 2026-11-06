@@ -121,10 +121,23 @@ export function editionRoutes() {
   };
 }
 
-export { inlineStylesheet };
+// Vercel Web Analytics, as the previous site had it (@vercel/analytics): the plain-HTML form of the same tracker, added to
+// production builds only (the dev server has no /_vercel endpoint). Deferred: it never delays the page.
+function vercelAnalytics() {
+  return {
+    name: 'vercel-analytics',
+    apply: 'build',
+    transformIndexHtml: () => [
+      { tag: 'script', children: 'window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };', injectTo: 'head' },
+      { tag: 'script', attrs: { defer: true, src: '/_vercel/insights/script.js' }, injectTo: 'head' },
+    ],
+  };
+}
+
+export { inlineStylesheet, vercelAnalytics };
 
 export default defineConfig({
-  plugins: [react(), preloadHomeScene(), inlineStylesheet(), gzipStackAssets(), publishAsCinematic(), buildMobileEdition(), editionRoutes()],
+  plugins: [react(), preloadHomeScene(), inlineStylesheet(), gzipStackAssets(), vercelAnalytics(), publishAsCinematic(), buildMobileEdition(), editionRoutes()],
   build: {
     // three.js r128 is a single ~510 kB module, lazy-loaded with the first 3D section; it cannot be split further.
     chunkSizeWarningLimit: 600,
